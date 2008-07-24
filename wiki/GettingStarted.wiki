@@ -1,0 +1,11 @@
+#summary How to get started on this project.
+
+= Introduction =
+
+This page will tell you how to join the project and obtain the current code.
+Also, it will give details on our group's process/workflow.
+
+
+= Details =
+
+Coming soon (as in "tonight")
