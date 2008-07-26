@@ -1,0 +1,15 @@
+--- #YAML:1.0
+name:                Devel-Cover
+version:             0.64
+abstract:            Code coverage metrics for Perl
+license:             ~
+author:              
+    - Paul Johnson (pjcj@cpan.org)
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Digest::MD5:                   0
+    Storable:                      0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

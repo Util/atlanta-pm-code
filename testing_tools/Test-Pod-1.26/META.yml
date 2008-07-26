@@ -1,0 +1,14 @@
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Test-Pod
+version:      1.26
+version_from: Pod.pm
+installdirs:  site
+requires:
+    File::Spec:                    0
+    Pod::Simple:                   2.04
+    Test::Builder::Tester:         1.02
+    Test::More:                    0.62
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.30

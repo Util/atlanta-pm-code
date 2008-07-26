@@ -1,0 +1,20 @@
+
+no_index: 
+  directory: 
+    - inc
+    - t
+generated_by: Module::Install version 0.62
+distribution_type: module
+version: 1.07
+name: PPI-HTML
+author: Adam Kennedy <cpan@ali.as>
+license: perl
+build_requires: 
+  Test::More: 0.47
+  File::Spec: 0.80
+requires: 
+  PPI: 0.990
+  CSS::Tiny: 1.10
+  perl: 5.005
+  Params::Util: 0.05
+abstract: Generate syntax-hightlighted HTML for Perl using PPI

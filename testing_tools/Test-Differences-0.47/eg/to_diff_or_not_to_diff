@@ -1,0 +1,12 @@
+use Test;
+
+eval "use Test::Differences";
+
+sub my_ok {
+    goto &eq_or_diff if defined &eq_or_diff;
+    goto &ok;
+}
+
+plan tests => 1;
+
+my_ok "a", "b";

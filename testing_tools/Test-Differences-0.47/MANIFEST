@@ -1,0 +1,13 @@
+Changes
+Differences.pm
+MANIFEST
+MANIFEST.SKIP
+Makefile.PL
+eg/to_diff_or_not_to_diff
+t/00flatten.t
+t/01text_vs_data.t
+t/02pass.t
+t/03struct.t
+t/10test.t
+t/20test_more.t
+t/99example.t

@@ -1,0 +1,34 @@
+---
+abstract: 'Parse, Analyze and Manipulate Perl (without perl)'
+author:
+  - 'Adam Kennedy <adamk@cpan.org>'
+build_requires:
+  File::Remove: 0.39
+  File::Spec: 0.84
+  Test::ClassAPI: 1.03
+  Test::More: 0.47
+  Test::Object: 0.07
+  Test::SubCalls: 1.07
+distribution_type: module
+generated_by: 'Module::Install version 0.73'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
+module_name: PPI
+name: PPI
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Clone: 0.25
+  Digest::MD5: 2.27
+  IO::String: 1.07
+  List::MoreUtils: 0.16
+  List::Util: 1.19
+  Params::Util: 0.21
+  Storable: 2.14
+  Task::Weaken: 0
+  perl: 5.6.0
+version: 1.203
