@@ -29,3 +29,6 @@ For command line clients, type the following:
         This command will ask for a password.  This is not the password you login to gmail with.  You can obtain your GoogleCode password by going to (http://code.google.com/hosting/settings).
 
 For GUI clients, you should be able to do a checkout and provide the subversion URL (https://atlanta-pm-code.googlecode.com/svn/trunk/) and your Google Code username/password as specified above.
+
+= Overview of Test Coverage =
+http://search.cpan.org/~pjcj/Devel-Cover-0.64/lib/Devel/Cover/Tutorial.pod
