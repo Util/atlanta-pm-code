@@ -1,0 +1,50 @@
+Reading database from /home/pjcj/g/perl/svk/dc/cover_db
+
+
+------------------------------------------ ------ ------ ------ ------ ------
+File                                         stmt   bran   cond    sub  total
+------------------------------------------ ------ ------ ------ ------ ------
+tests/deparse                                66.7    n/a    n/a    0.0   50.0
+Total                                        66.7    n/a    n/a    0.0   50.0
+------------------------------------------ ------ ------ ------ ------ ------
+
+
+Run: ...
+Perl version: ...
+OS: ...
+Start: ...
+Finish: ...
+
+tests/deparse
+
+line  err   stmt   bran   cond    sub   code
+1                                       #!/usr/bin/perl -l
+2                                       
+3                                       # Copyright 2004-2008, Paul Johnson (pjcj@cpan.org)
+4                                       
+5                                       # This software is free.  It is licensed under the same terms as Perl itself.
+6                                       
+7                                       # The latest version of this software should be available from my homepage:
+8                                       # http://www.pjcj.net
+9                                       
+10                                      use strict;
+11                                      use warnings;
+12                                      
+13                                      use B::Deparse;
+14                                      
+15                                      my $xx = sub
+16                                      {
+17    ***      0                    0       print "xx";
+18             1                        };
+19                                      
+20             1                        print B::Deparse->new->coderef2text($xx)
+
+
+Uncovered Subroutines
+---------------------
+
+Subroutine Count Location        
+---------- ----- ----------------
+__ANON__       0 tests/deparse:17
+
+

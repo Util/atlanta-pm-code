@@ -1,0 +1,21 @@
+#!/bin/perl
+
+use lib ();
+
+BEGIN
+{
+    lib->import
+    (
+        sub
+        {
+            return unless $_[1] eq "IncSub.pm";
+            my $fh;
+            open $fh, "tests/IncSub.pm" or die $!;
+            $fh
+        }
+    )
+}
+
+use IncSub;
+
+IncSub::check

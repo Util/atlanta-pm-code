@@ -1,0 +1,10 @@
+\.bak$
+\.sw[a-z]$
+\.tar\.gz$
+^tmp/
+^blib/
+^Makefile$
+\.old$
+^A$
+^B$
+^pm_to_blib$

@@ -1,0 +1,17 @@
+--- #YAML:1.0
+name:                Template-Toolkit
+version:             2.19
+abstract:            comprehensive template processing system
+license:             ~
+generated_by:        ExtUtils::MakeMaker version 6.31
+distribution_type:   module
+requires:     
+    AppConfig:                     1.56
+    File::HomeDir:                 0.64
+    File::Spec:                    0.8
+    File::Temp:                    0.12
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - Andy Wardley <abw@wardley.org>

@@ -1,0 +1,12 @@
+Changes
+MANIFEST
+MANIFEST.SKIP
+Makefile.PL
+lib/Text/Diff.pm
+lib/Text/Diff/Table.pm
+t/ext_format.t
+t/general.t
+t/inputs.t
+t/keygen.t
+t/outputs.t
+t/table.t
