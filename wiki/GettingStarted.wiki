@@ -9,18 +9,18 @@ The Atlanta PM code group has decided to adopt the [http://search.cpan.org/perld
 In order to work on this project, you will need the following software installed:
 
   * Subversion - [http://subversion.tigris.org/ Home] - [http://subversion.tigris.org/getting.html Download] - [http://svnbook.red-bean.com/ Subversion Book]
-        Binary packages available for most platforms, Windows, Linux, OS X, etc
+        Binary packages available for most platforms, Windows, Linux, OS X, etc.
 
   * Perl - [http://perl.com/ Home] - [http://www.perl.com/download.csp#binary Download] - [http://www.perl.org/docs.html Documentation]
 
   * A text editor
         * [http://www.vim.org/download.php Vim] - FOSS - POSIX/Mac OS X/Windows
         * [http://www.gnu.org/software/emacs/ Emacs] - FOSS - POSIX/Mac OS X/Windows
-        * [http://macromates.com/ TextMate] - Mac OS X - Commercial
-        * [http://www.e-texteditor.com/ E] - Windows - Commercial
-        * [http://barebones.com/products/textwrangler/ TextWrangler] - Mac OS X - Free
-        * [http://barebones.com/products/bbedit/ BBEdit] - Mac OS X - Commercial
-        * [http://smultron.sourceforge.net/ Smultron] - Mac OS X - FOSS
+        * [http://macromates.com/ TextMate] - Commercial - Mac OS X
+        * [http://www.e-texteditor.com/ E] - Commercial - Windows
+        * [http://barebones.com/products/textwrangler/ TextWrangler] - Free - Mac OS X
+        * [http://barebones.com/products/bbedit/ BBEdit]- Commercial - Mac OS X 
+        * [http://smultron.sourceforge.net/ Smultron] - FOSS - Mac OS X
 
 = Obtain the project source code =
 
