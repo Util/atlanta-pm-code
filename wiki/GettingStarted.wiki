@@ -25,7 +25,7 @@ After you have subversion, you can check out the source code.
 
 For command line clients, type the following:
    svn checkout https://atlanta-pm-code.googlecode.com/svn/trunk/ atlanta-pm-code --username bobsmith
-        Replace bobsmith with your Google code username (XXXXXX@gmail.com)
+        Replace bobsmith with your Google code username (XXXXXX@example.com)
         This command will ask for a password.  This is not the password you login to gmail with.  You can obtain your GoogleCode password by going to (http://code.google.com/hosting/settings).
 
 For GUI clients, you should be able to do a checkout and provide the subversion URL (https://atlanta-pm-code.googlecode.com/svn/trunk/) and your Google Code username/password as specified above.
