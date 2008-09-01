@@ -62,6 +62,7 @@ svn: REPORT request failed on '/svn/!svn/vcc/default'
 svn: REPORT of '/svn/!svn/vcc/default': 200 OK (https://atlanta-pm-code.googlecode.com)
 $
 }}}
+If you accept a certificate permanently, it is stored in a file named from the SHA1 fingerprint of the certificate in `~/.subversion/auth/svn.ssl.server/`.
 
 In svnX, choose "Working Copies" in the "Windows" menu. In the "Working Copies" window, click the "+" button. Give the new entry a name (like "APM Code"). Next to the path field, click the magnifying glass and select the directory where you want to place your working copy. I don't know if it is necessary, but I replicated my Google code credentials in this entry ("User" and "Pass").
 
