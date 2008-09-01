@@ -2,6 +2,8 @@
 
 This is a work in progress. More soon.
 
+----
+
 = Introduction =
 
 These are notes on how to use the svnX GUI client (a Mac only client) to access the atlanta-pm-code repository.
