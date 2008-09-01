@@ -14,11 +14,15 @@ I'm still running Tiger (10.4), so `svn` is not included with the OS. If you are
 
 There are three binary distributions of `svn` for the Mac. If you use Fink or !MacPorts, you may want to look at the page on [http://subversion.tigris.org/getting.html#osx getting svn]. Otherwise, there are no prerequisites for using the [http://www.collab.net/downloads/community/ package from CollabNet].
 
+I installed the subversion 1.4.4 package from another source in 2007. The current version from !CollabNet is 1.5.1. I think it installs in `/usr/local` by default.
+
 == Install svnX ==
 
 Download the [http://www.lachoseinteractive.net/en/community/subversion/svnx/ svnX client], mount the disk image, and drag the application to one of your Application folder hierarchies. SvnX is distributed under an open source license.
 
 Other clients are listed on the [http://subversion.tigris.org/links.html#clients subversion site].
+
+In the Preferences, make sure that the path to the `svn` binaries is correct. Also, set the "Diff application" to your preference. I think !FileMerge from Apple's Developer Tools is the default, but svnX can also use !TextWrangler, BBEdit, XCode, and other text editors (some of these editors include `svn` support of their own).
 
 == Decide where to put your working copies ==
 
@@ -29,10 +33,6 @@ You may already have a location suitable for your working copies. If not, create
 In svnX, choose "Repositories" in the "Windows" menu. In the "Repositories" window, click the "+" button. Give the new entry a name (like "Atlanta Perl Mongers Code Group") and enter `https://atlanta-pm-code.googlecode.com/svn/trunk/` for the path.
 
 The "User" and "Pass" are your Google identity on Google Code and your [http://code.google.com/hosting/settings googlecode.com password] (this is distinct from the password you use for Gmail, Google docs, or other Google services).
-
-*The next paragraph may depend on the completion of subsequent steps. I'll update this once I can verify it.*
-
-Once you've created the entry, you should be able to double click it (in the list at the top of the window) to open a repository browser. This lets you see examine the source code repository. It is the same information you can get through the web based [http://code.google.com/p/atlanta-pm-code/source/browse/ source browser], but has richer navigation features.
 
 == Configure svnX for your working copy ==
 
@@ -67,11 +67,14 @@ In svnX, choose "Working Copies" in the "Windows" menu. In the "Working Copies" 
 
 Double click the entry you created (in the list at the top of the window) to open a working copy browser. This lets you examine the code in the working copy you checked out. In my limited experience, this will not match my expectation of what is in the tree (often things are shown in red). Click the refresh button and the browser will synchronize with the working copy.
 
-As one relatively new to `svn`, I find it helpful to disable "flat mode" (uncheck the "flat mode" check box).
-
 == Notes ==
 
+  * As one relatively new to `svn`, I find it helpful to disable "flat mode" in the working copy browser (uncheck the "flat mode" check box).
+
+  * Double clicking on a repository in the list at the top of the "Repositories" window will open a repository browser. This lets you examine the source code repository. It is the same information you can get through the web based [http://code.google.com/p/atlanta-pm-code/source/browse/ source browser], but has richer navigation features.
+
+  * Google code stores wiki entries in the same subversion repository used for the project code. At times, this will cause the revision number to advance beyond the changes in the code repository.
+
 To be covered in an update:
-  * Why is the code I have so far behind the current revision?
   * Checking out less
   * Doing `diff`s
