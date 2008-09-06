@@ -78,6 +78,7 @@ Double click the entry you created (in the list at the top of the window) to ope
 
   * Google code stores wiki entries in the same subversion repository used for the project code. At times, this will cause the revision number to advance beyond the changes in the code repository.
 
+  * You can check out subsets of the repository using the repository browser. Select the branch of the tree you want in the bottom pane of the browser and click the "svn checkout" button. This may prompt you for a new location to store it and create a new entry in the working copy browser.
+
 To be covered in an update:
-  * Checking out less
   * Doing `diff`s
