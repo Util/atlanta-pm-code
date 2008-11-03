@@ -1,17 +1,18 @@
 #summary How to get started on this project.
+<wiki:toc max_depth="1" />
 
 = Introduction =
 
-The Atlanta PM code group has decided to adopt the [http://search.cpan.org/perldoc?Tree::DAG_Node Tree-DAG_Node] CPAN perl module.
+The Atlanta PM code group has decided to adopt the [http://search.cpan.org/perldoc?Tree::DAG_Node Tree-DAG_Node] CPAN module.
 
-= Prerequisite tools =
+= Prerequisites =
 
 In order to work on this project, you will need the following software installed:
 
-  * Subversion - [http://subversion.tigris.org/ Home] - [http://subversion.tigris.org/getting.html Download] - [http://svnbook.red-bean.com/ Subversion Book]
-        Binary packages available for most platforms, Windows, Linux, OS X, etc.
-
   * Perl - [http://perl.com/ Home] - [http://www.perl.com/download.csp#binary Download] - [http://www.perl.org/docs.html Documentation]
+
+  * Subversion - [http://subversion.tigris.org/ Home] - [http://subversion.tigris.org/getting.html Download] - [http://svnbook.red-bean.com/ Subversion Book]
+        * Binary packages are available for most platforms (Windows, Linux, OS X, etc.).
 
   * A text editor
         * [http://www.vim.org/download.php Vim] - FOSS - POSIX/Mac OS X/Windows
@@ -22,19 +23,25 @@ In order to work on this project, you will need the following software installed
         * [http://barebones.com/products/bbedit/ BBEdit]- Commercial - Mac OS X 
         * [http://smultron.sourceforge.net/ Smultron] - FOSS - Mac OS X
 
+Aditionally, you will need Google Code credentials (username/[http://code.google.com/hosting/settings password]). Contact one of the Project owners to join the group. Note: even if your Google Code username is identical to your Gmail address, your Google Code password will always be different from your Gmail password.
+
 = Obtain the project source code =
 
-After you have subversion, you can check out the source code.
+After you have subversion, you can checkout the source code.
 
-For command line clients, type the following:
+With the `svn` command line client, type the following:
 {{{
-svn checkout https://atlanta-pm-code.googlecode.com/svn/trunk/ atlanta-pm-code --username bobsmith
+svn checkout https://atlanta-pm-code.googlecode.com/svn/trunk/ atlanta-pm-code --username YourGoogleCodeUsername
 }}}
-        Replace bobsmith with your Google code username (XXXXXX@example.com)
-        This command will ask for a your [http://code.google.com/hosting/settings GoogleCode password].  This is not the password you login to gmail with.
 
-For GUI clients, you should be able to do a checkout and provide the subversion URL (https://atlanta-pm-code.googlecode.com/svn/trunk/) and your Google Code username/[http://code.google.com/hosting/settings password].
+With GUI clients, you should be able to checkout the source code by providing the subversion URL (https://atlanta-pm-code.googlecode.com/svn/trunk/) and your Google Code credentials (username/[http://code.google.com/hosting/settings password]).
 
 = Overview of Test Coverage =
 
 http://search.cpan.org/~pjcj/Devel-Cover-0.64/lib/Devel/Cover/Tutorial.pod
+
+= Other resources (by author) =
+
+[http://langworth.com/ Ian Langworth]: [http://langworth.com/pub/notes/perltestref.html Perl testing reference card] (discussed at September meeting), [http://www.amazon.com/exec/obidos/ASIN/0596100922/ Perl Testing: A Developer's Notebook] (book)
+
+[https://www.linkedin.com/profile?viewProfile=&key=82476 Gabor Szabo]: [http://www.pti.co.il/talks/perl_in_testing/ Automatic Testing with Perl] ([http://www.pti.co.il/talks.html downloadable version]), [http://www.szabgab.com/blog/tags/testing.html blog entries on testing]
