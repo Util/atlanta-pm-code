@@ -42,6 +42,6 @@ http://search.cpan.org/~pjcj/Devel-Cover-0.64/lib/Devel/Cover/Tutorial.pod
 
 = Other resources (by author) =
 
-[http://langworth.com/ Ian Langworth]: [http://langworth.com/pub/notes/perltestref.html Perl testing reference card] (discussed at September meeting), [http://www.amazon.com/exec/obidos/ASIN/0596100922/ Perl Testing: A Developer's Notebook] (book)
+[http://langworth.com/ Ian Langworth]: [http://langworth.com/pub/notes/perltestref.html Perl testing reference card] (discussed at Sep 2008 meeting), [http://www.amazon.com/exec/obidos/ASIN/0596100922/ Perl Testing: A Developer's Notebook] (book)
 
 [https://www.linkedin.com/profile?viewProfile=&key=82476 Gabor Szabo]: [http://www.pti.co.il/talks/perl_in_testing/ Automatic Testing with Perl] ([http://www.pti.co.il/talks.html downloadable version]), [http://www.szabgab.com/blog/tags/testing.html blog entries on testing]
