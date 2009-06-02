@@ -1,0 +1,48 @@
+#summary One-sentence summary of this page.
+#labels Featured,Phase-Implementation
+
+
+*This is a work in progress, right now I am just trying to get ideas down and will come back around and clean up the writing...*
+
+
+
+= Introduction =
+
+An overview of the work flow for working on this project.
+
+
+= Details =
+
+*Pull the latest code from the repository*
+
+This is covered on the Source tab.
+
+
+*Create or take ownership of an issue*
+
+If you see an existing issue you want to take ownership of do so or look at the code coverage and find out which subroutines have not been tested yet and create a new Issue stating that subroutine has not been tested.
+
+
+*Write code for the issue you have taken ownership of*
+
+The tests exist under the "t/" directory. The current standard is to use the subroutine name as the filename of the test with the ".t" extension, ie. copy_at_and_under.t
+
+
+*Test your test*
+
+I use the following line when testing tests:
+prove -v -Ilib t/test_filename.t
+
+
+*Add your test to the repository*
+
+svn add t/test_filename.t
+svn commit -m "Test created for Issue #10" t/test_filename.t
+
+
+*Update and Close the Issue*
+
+Update the issue with the revision number that has the test that was added and update the issues status as "Fixed".
+
+
+*Wash, rinse, repeat*
