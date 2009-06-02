@@ -1,5 +1,5 @@
 #summary One-sentence summary of this page.
-#labels Featured,Phase-Implementation
+#labels Phase-Implementation
 
 
 *This is a work in progress, right now I am just trying to get ideas down and will come back around and clean up the writing...*
