@@ -67,11 +67,11 @@ Click on the link: 'blib/lib/Tree/DAG_Node.pm'
 
 At the top you can see the percentage of code coverage.
 
-http://atlanta-pm-code.googlecode.com/svn/wiki/headers.png
+http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/headers.png
 
 Scrolling down the page you can see which methods are tested.
 
-http://atlanta-pm-code.googlecode.com/svn/wiki/coverage.png
+http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/coverage.png
 
 At this point you can locate a subroutine that is not being tested.
 
