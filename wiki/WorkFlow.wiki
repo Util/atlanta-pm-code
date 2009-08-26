@@ -88,6 +88,7 @@ For the example above we will create a new issue for subroutines 'add_daughters_
 
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/add_issue.png
 
+Submit the issue ane take note of the issue number that you just created. You will need it later when you go to push your test back out to the SVN repository.
 
 *Write the tests for the subroutine*
 
