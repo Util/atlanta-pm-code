@@ -65,7 +65,13 @@ Using your browser of choice, load the page "/home/$USERNAME/atlanta-pm-code/cov
 
 Click on the link: 'blib/lib/Tree/DAG_Node.pm'
 
-At the top you can see the percentage of code coverage. Scrolling down the page you can see which methods are tested.
+At the top you can see the percentage of code coverage.
+
+[http://code.google.com/p/atlanta-pm-code/source/browse/wiki/headers.png]
+
+Scrolling down the page you can see which methods are tested.
+
+[http://code.google.com/p/atlanta-pm-code/source/browse/wiki/coverage.png]
 
 At this point you can locate a subroutine that is not being tested.
 
