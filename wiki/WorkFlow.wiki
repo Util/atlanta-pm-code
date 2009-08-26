@@ -16,6 +16,58 @@ An overview of the work flow for working on this project.
 
 This is covered on the Source tab.
 
+= Code Coverage =
+
+Make sure to have Devel::NYTProf installed. This perl module provide tools for checking the code coverage.
+
+To install:
+{{{
+[root@laptop atlanta-pm-code]$ cpan Devel::NYTProf
+}}}
+
+Once installed run the command to generate the test coverage information, 'cover -test'
+
+{{{
+[woody@laptop atlanta-pm-code]$ cover -test
+Deleting database /home/woody/atlanta-pm-code/cover_db
+cover: running make test OPTIMIZE=-O0\ -fprofile-arcs\ -ftest-coverage OTHERLDFLAGS=-fprofile-arcs\ -ftest-coverage
+cp lib/Tree/DAG_Node.pm blib/lib/Tree/DAG_Node.pm
+PERL_DL_NONLAZY=1 /usr/bin/perl "-MExtUtils::Command::MM" "-e" "test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+t/00_about_verbose.t ......... ok   
+t/01_old_junk.t .............. ok   
+t/02_add_daughter_wrapper.t .. ok   
+t/copy_at_and_under.t ........ ok   
+t/copy_tree.t ................ ok   
+t/mother.t ................... ok   
+t/new.t ...................... ok   
+All tests successful.
+Files=7, Tests=34, 22 wallclock secs ( 0.05 usr  0.07 sys +  9.44 cusr 10.24 csys = 19.80 CPU)
+Result: PASS
+Reading database from /home/woody/atlanta-pm-code/cover_db
+
+
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+File                           stmt   bran   cond    sub    pod   time  total
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+...l/5.10.0/Devel/Symdump.pm    0.0    0.0    0.0    0.0  100.0    n/a    2.2
+...rl/5.10.0/Pod/Coverage.pm    0.0    0.0    0.0    0.0  100.0    n/a    2.3
+.../Coverage/CountParents.pm    0.0    0.0    n/a    0.0    n/a    n/a    0.0
+blib/lib/Tree/DAG_Node.pm      22.2   15.5    9.7   30.8   92.1  100.0   23.0
+Total                          15.1   11.7    6.2   23.3   93.3  100.0   16.9
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+
+
+Writing HTML output to /home/woody/atlanta-pm-code/cover_db/coverage.html ...
+done.
+}}}
+
+Using your browser of choice, load the page "/home/$USERNAME/atlanta-pm-code/cover_db/coverage.html" to examine the code coverage. 
+
+Click on the link: 'blib/lib/Tree/DAG_Node.pm'
+
+At the top you can see the percentage of code coverage. Scrolling down the page you can see which methods are tested.
+
+At this point you can locate a subroutine that is not being tested.
 
 *Create or take ownership of an issue*
 
