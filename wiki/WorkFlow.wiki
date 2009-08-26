@@ -22,7 +22,7 @@ Make sure to have Devel::Cover installed. This perl module provide tools for che
 
 To install:
 {{{
-[root@laptop atlanta-pm-code]$ cpan Devel::NYTProf
+[root@laptop atlanta-pm-code]$ cpan Devel::Cover
 }}}
 
 Once installed run the command to generate the test coverage information, 'cover -test'
