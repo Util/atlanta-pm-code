@@ -69,23 +69,35 @@ At the top you can see the percentage of code coverage.
 
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/headers.png
 
-Scrolling down the page you can see which methods are tested.
+I believe that the main focus is on the first three columns.
+line - Line number of the code
+stmt (Statement coverage) - How many times that statement was tested.
+bran (Branch coverage) - Shows if the tests covered both choices of a brnching statement. 
+cond (Condition coverage) - Shows if the tests covered all possibilities of a logical condition.
+sub  (Subroutine coverage) - Shows how much of the subroutine was tested. 
 
+Here is an example of an untested subroutine:
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/coverage.png
 
-At this point you can locate a subroutine that is not being tested.
-
-You may want to keep a copy of the modules documentation up for reference:
-http://search.cpan.org/~cogent/Tree-DAG_Node-1.06/lib/Tree/DAG_Node.pm
 
 *Create or take ownership of an issue*
 
 If you see an existing issue you want to take ownership of do so or look at the code coverage and find out which subroutines have not been tested yet and create a new Issue stating that subroutine has not been tested.
 
+For the example above we will create a new issue for subroutines 'add_daughters_left' & 'add_daughter_left' not being tested.
 
-*Write code for the issue you have taken ownership of*
+http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/add_issue.png
 
-The tests exist under the "t/" directory. The current standard is to use the subroutine name as the filename of the test with the ".t" extension, ie. copy_at_and_under.t
+
+*Write the tests for the subroutine*
+
+The tests exist under the "t/" directory. The current standard is to use the subroutine name as the filename of the test with the ".t" extension.
+
+{{{
+vi t/add_daughters_left.t
+
+vi t/add_daughter_left.t
+}}}
 
 
 *Test your test*
