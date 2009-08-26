@@ -16,7 +16,7 @@ An overview of the work flow for working on this project.
 
 This is covered on the Source tab.
 
-= Code Coverage =
+* Code Coverage *
 
 Make sure to have Devel::NYTProf installed. This perl module provide tools for checking the code coverage.
 
@@ -68,6 +68,9 @@ Click on the link: 'blib/lib/Tree/DAG_Node.pm'
 At the top you can see the percentage of code coverage. Scrolling down the page you can see which methods are tested.
 
 At this point you can locate a subroutine that is not being tested.
+
+You may want to keep a copy of the modules documentation up for reference:
+http://search.cpan.org/~cogent/Tree-DAG_Node-1.06/lib/Tree/DAG_Node.pm
 
 *Create or take ownership of an issue*
 
