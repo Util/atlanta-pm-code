@@ -18,7 +18,7 @@ This is covered on the Source tab.
 
 * Code Coverage *
 
-Make sure to have Devel::NYTProf installed. This perl module provide tools for checking the code coverage.
+Make sure to have Devel::Cover installed. This perl module provide tools for checking the code coverage.
 
 To install:
 {{{
