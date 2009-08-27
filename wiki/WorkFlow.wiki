@@ -97,25 +97,141 @@ The tests exist under the "t/" directory. The current standard is to use the sub
 {{{
 vi t/add_daughters_left.t
 
-vi t/add_daughter_left.t
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Test::More tests => 7;
+use Tree::DAG_Node;
+
+# Create a new root node
+my $mother = Tree::DAG_Node->new();
+
+# Create a new daughter node
+my $daughter_one = Tree::DAG_Node->new({name => 'Sally'});
+
+# Add the daughter node to the root node
+$mother->add_daughter( $daughter_one );
+
+# Create 3 more daughter nodes
+my $daughter_two = Tree::DAG_Node->new({name => 'Luci'});
+my $daughter_three = Tree::DAG_Node->new({name => 'Kendra'});
+my $daughter_four = Tree::DAG_Node->new({name => 'Bobby'});
+
+# Add two of the daughters to an array that will be used to test add_daughters_left
+my @daughters = ( $daughter_two, $daughter_three ); 
+
+# Verify that the first daughter node is Added
+my @mothers_daughters = $mother->daughters;
+is(@mothers_daughters, 1, 'Single child added');
+is(scalar $mother->daughters, 1, 'Single child loaded');
+
+# Verify the name of the first daughter node
+is($mothers_daughters[0]->name, $daughter_one->name, 'First daughters name is Sally');
+
+# Add daughters Two and Three to the root node
+$mother->add_daughters_left( @daughters );
+
+# Get a list of the daughters
+@mothers_daughters = $mother->daughters;
+
+# Verify that daughters two and three were added and that daughter one still exists
+is($mothers_daughters[0]->name, $daughter_three->name, 'First daughters name is now Kendra');
+is($mothers_daughters[1]->name, $daughter_two->name, 'Second daughters name is Luci');
+is($mothers_daughters[2]->name, $daughter_one->name, 'Third daughters name is Sally');
+
+# Add the forth daughter to test add_daughter_left
+$mother->add_daughter_left( $daughter_four );
+
+# Update the list of the roots daughters
+@mothers_daughters = $mother->daughters;
+
+# Verify that daughter four is not the first daughter
+is($mothers_daughters[0]->name, $daughter_four->name, 'First daughters name is now Bobby');
 }}}
 
 
-*Test your test*
+*Test the new test*
 
-I use the following line when testing tests:
-prove -v -Ilib t/test_filename.t
+Run the new test:
 
+{{{
+[woody@laptop atlanta-pm-code]$ prove -lv t/add_daughters_left.t 
+t/add_daughters_left.t .. 
+1..7
+ok 1 - Single child added
+ok 2 - Single child loaded
+ok 3 - First daughters name is Sally
+ok 4 - First daughters name is now Kendra
+ok 5 - Second daughters name is Luci
+ok 6 - Third daughters name is Sally
+ok 7 - First daughters name is now Bobby
+ok
+All tests successful.
+Files=1, Tests=7,  1 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
+Result: PASS
+}}}
+
+Re-Run the cover command to see how much the new tests affected the coverage.
+
+{{{
+[woody@laptop atlanta-pm-code]$ cover -test
+Deleting database /home/woody/atlanta-pm-code/cover_db
+cover: running make test OPTIMIZE=-O0\ -fprofile-arcs\ -ftest-coverage OTHERLDFLAGS=-fprofile-arcs\ -ftest-coverage
+PERL_DL_NONLAZY=1 /usr/bin/perl "-MExtUtils::Command::MM" "-e" "test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+t/00_about_verbose.t ......... ok   
+t/01_old_junk.t .............. ok   
+t/02_add_daughter_wrapper.t .. ok   
+t/add_daughters_left.t ....... ok   
+t/copy_at_and_under.t ........ ok   
+t/copy_tree.t ................ ok   
+t/mother.t ................... ok   
+All tests successful.
+Files=7, Tests=33, 16 wallclock secs ( 0.01 usr  0.01 sys +  1.42 cusr  0.93 csys =  2.37 CPU)
+Result: PASS
+Reading database from /home/woody/atlanta-pm-code/cover_db
+
+
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+File                           stmt   bran   cond    sub    pod   time  total
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+blib/lib/Tree/DAG_Node.pm      22.9   14.9    6.5   34.1   92.1  100.0   23.2
+Total                          22.9   14.9    6.5   34.1   92.1  100.0   23.2
+---------------------------- ------ ------ ------ ------ ------ ------ ------
+
+
+Writing HTML output to /home/woody/atlanta-pm-code/cover_db/coverage.html ...
+done.
+
+}}}
+
+Refresh the coverage webpage and verify that your tests have covered the subroutine.
+
+http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/coverage_updated.png
 
 *Add your test to the repository*
 
-svn add t/test_filename.t
-svn commit -m "Test created for Issue #10" t/test_filename.t
+Once you are satisifed that your tests are good add them to the repository.
+
+{{{
+[woody@laptop atlanta-pm-code]$ svn add t/add_daughters_left.t 
+A         t/add_daughters_left.t
+}}}
+
+Then commit your test to the repository with a comment stating what issue it was created for to resolve.
+
+{{{
+[woody@laptop atlanta-pm-code]$ svn commit -m "Test t/add_daughters_left.t created for Issue #11" t/add_daughters_left.t 
+Adding         t/add_daughters_left.t
+Transmitting file data .
+Committed revision 47.
+}}}
 
 
 *Update and Close the Issue*
 
-Update the issue with the revision number that has the test that was added and update the issues status as "Fixed".
+Update the issue with stating the test was added in the revision number that was shown when you committed the test and change the status to "Fixed".
 
+http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/issue_updated.png
 
 *Wash, rinse, repeat*
