@@ -3,11 +3,11 @@
 
 = Introduction =
 
-As I sat down to write tests for the coding group I had to sit and look at documentation, command-line history and just think back to everything that was covered by Bruce during previous months meetings. Once I had finally wrote some tests and pushed them out to the group repository I asked for feedback and Bruce gave me a couple of pointers for future success. 
+As I sat down to write tests for the coding group I had to sit and look at documentation, command-line history and just think back to everything that was covered by Bruce during previous months meetings. Once I had finally written some tests and pushed them out to the group repository I asked for feedback and Bruce gave me a couple of pointers for future success. 
 
 During this whole process I took notes to make sure I wouldn't have the initial troubles of trying to remember all the steps. 
 
-Below is the result of those notes. I hope this benefits the coding group going forward.
+Below is a synthesis of the notes I've taken and experience from writing a test. I hope this benefits the coding group going forward.
  
 If I have incorrectly stated something or missed anything please let me know and feel free to update the wiki page.
 
@@ -24,6 +24,8 @@ Make sure to have Devel::Cover installed. This perl module provide tools for che
 To install:
 {{{
 [root@laptop atlanta-pm-code]$ cpan Devel::Cover
+...
+[woody@laptop atlanta-pm-code]$
 }}}
 
 Once installed run the command to generate the test coverage information, 'cover -test'
@@ -60,9 +62,11 @@ Total                          15.1   11.7    6.2   23.3   93.3  100.0   16.9
 
 Writing HTML output to /home/woody/atlanta-pm-code/cover_db/coverage.html ...
 done.
+
+[woody@laptop atlanta-pm-code]$
 }}}
 
-Using your browser of choice, load the page "/home/$USERNAME/atlanta-pm-code/cover_db/coverage.html" to examine the code coverage. 
+Using your browser of choice, load the page "$HOME/atlanta-pm-code/cover_db/coverage.html" to examine the code coverage. 
 
 Click on the link: 'blib/lib/Tree/DAG_Node.pm'
 
@@ -71,13 +75,16 @@ At the top you can see the percentage of code coverage.
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/headers.png
 
 I believe that the main focus is on the first three columns.
-line - Line number of the code
-stmt (Statement coverage) - How many times that statement was tested.
-bran (Branch coverage) - Shows if the tests covered both choices of a barnching statement. 
-cond (Condition coverage) - Shows if the tests covered all possibilities of a logical condition.
-sub  (Subroutine coverage) - Shows how much of the subroutine was tested. 
+
+|| line || || Line number of the code ||
+|| stmt || Statement coverage || How many times that statement was tested. ||
+|| bran || Branch coverage || Shows if the tests covered both choices of a branching statement. ||
+|| cond || Condition coverage || Shows if the tests covered all possibilities of a logical condition. ||
+|| sub || Subroutine coverage || Shows how much of the subroutine was tested. ||
+
 
 Here is an example of an untested subroutine:
+
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/coverage.png
 
 
@@ -171,6 +178,8 @@ ok
 All tests successful.
 Files=1, Tests=7,  1 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
 Result: PASS
+
+[woody@laptop atlanta-pm-code]$
 }}}
 
 Re-Run the cover command to see how much the new tests affected the coverage.
@@ -204,6 +213,7 @@ Total                          22.9   14.9    6.5   34.1   92.1  100.0   23.2
 Writing HTML output to /home/woody/atlanta-pm-code/cover_db/coverage.html ...
 done.
 
+[woody@laptop atlanta-pm-code]$
 }}}
 
 Refresh the coverage webpage and verify that your tests have covered the subroutine.
@@ -217,6 +227,8 @@ Once you are satisfied that your tests are good add them to the repository.
 {{{
 [woody@laptop atlanta-pm-code]$ svn add t/add_daughters_left.t 
 A         t/add_daughters_left.t
+
+[woody@laptop atlanta-pm-code]$
 }}}
 
 Then commit your test to the repository with a comment stating what issue it was created for to resolve.
@@ -226,6 +238,8 @@ Then commit your test to the repository with a comment stating what issue it was
 Adding         t/add_daughters_left.t
 Transmitting file data .
 Committed revision 47.
+
+[woody@laptop atlanta-pm-code]$
 }}}
 
 
