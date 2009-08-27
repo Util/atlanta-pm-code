@@ -1,14 +1,17 @@
 #summary The basic workflow of creating tests for this project.
 #labels Phase-Implementation
 
-
-*This is a work in progress, right now I am just trying to get ideas down and will come back around and clean up the writing...*
-
-
 = Introduction =
 
-An overview of the work flow for working on this project.
+As I sat down to write tests for the code group I had to sit and look at documentation, commandline history and just 
+think back to everything that was covered by Bruce during previous months meetings. Once I had finally wrote some tests
+and pushed them out to the group repository I asked for feedback and Bruce gave me a couple of pointers for future success. 
 
+During this whole process I took notes to make sure I wouldn't have the inital troubles of trying to remember all the steps. 
+
+Below is the result of those notes. I hope this helps the codeing group going forward.
+ 
+If I have incorrectly stated something or missed anything please let me know and feel free to update the wiki page.
 
 = Details =
 
