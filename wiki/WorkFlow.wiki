@@ -3,13 +3,11 @@
 
 = Introduction =
 
-As I sat down to write tests for the code group I had to sit and look at documentation, commandline history and just 
-think back to everything that was covered by Bruce during previous months meetings. Once I had finally wrote some tests
-and pushed them out to the group repository I asked for feedback and Bruce gave me a couple of pointers for future success. 
+As I sat down to write tests for the coding group I had to sit and look at documentation, command-line history and just think back to everything that was covered by Bruce during previous months meetings. Once I had finally wrote some tests and pushed them out to the group repository I asked for feedback and Bruce gave me a couple of pointers for future success. 
 
-During this whole process I took notes to make sure I wouldn't have the inital troubles of trying to remember all the steps. 
+During this whole process I took notes to make sure I wouldn't have the initial troubles of trying to remember all the steps. 
 
-Below is the result of those notes. I hope this helps the codeing group going forward.
+Below is the result of those notes. I hope this benefits the coding group going forward.
  
 If I have incorrectly stated something or missed anything please let me know and feel free to update the wiki page.
 
@@ -75,7 +73,7 @@ http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/headers.png
 I believe that the main focus is on the first three columns.
 line - Line number of the code
 stmt (Statement coverage) - How many times that statement was tested.
-bran (Branch coverage) - Shows if the tests covered both choices of a brnching statement. 
+bran (Branch coverage) - Shows if the tests covered both choices of a barnching statement. 
 cond (Condition coverage) - Shows if the tests covered all possibilities of a logical condition.
 sub  (Subroutine coverage) - Shows how much of the subroutine was tested. 
 
@@ -91,7 +89,7 @@ For the example above we will create a new issue for subroutines 'add_daughters_
 
 http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/add_issue.png
 
-Submit the issue ane take note of the issue number that you just created. You will need it later when you go to push your test back out to the SVN repository.
+Submit the issue and take note of the issue number that you just created. You will need it later when you go to push your test back out to the SVN repository.
 
 *Write the tests for the subroutine*
 
@@ -214,7 +212,7 @@ http://atlanta-pm-code.googlecode.com/svn/wiki/Workflow.attach/coverage_updated.
 
 *Add your test to the repository*
 
-Once you are satisifed that your tests are good add them to the repository.
+Once you are satisfied that your tests are good add them to the repository.
 
 {{{
 [woody@laptop atlanta-pm-code]$ svn add t/add_daughters_left.t 
