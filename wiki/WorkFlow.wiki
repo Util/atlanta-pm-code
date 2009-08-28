@@ -17,6 +17,18 @@ If I have incorrectly stated something or missed anything please let me know and
 
 This is covered on the Source tab.
 
+Once you have the code do the following to create the makefile and compile the module.
+
+{{{
+[woody@laptop atlanta-pm-code]$ perl Makefile.PL 
+Writing Makefile for Tree::DAG_Node
+
+[woody@laptop atlanta-pm-code]$ make
+Manifying blib/man3/Tree::DAG_Node.3pm
+
+[woody@laptop atlanta-pm-code]$ 
+}}}
+
 * Code Coverage *
 
 Make sure to have Devel::Cover installed. This perl module provide tools for checking the code coverage.
