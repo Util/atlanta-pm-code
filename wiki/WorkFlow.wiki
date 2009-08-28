@@ -21,9 +21,12 @@ Once you have the code do the following to create the makefile and compile the m
 
 {{{
 [woody@laptop atlanta-pm-code]$ perl Makefile.PL 
+Checking if your kit is complete...
+Looks good
 Writing Makefile for Tree::DAG_Node
 
 [woody@laptop atlanta-pm-code]$ make
+cp lib/Tree/DAG_Node.pm blib/lib/Tree/DAG_Node.pm
 Manifying blib/man3/Tree::DAG_Node.3pm
 
 [woody@laptop atlanta-pm-code]$ 
