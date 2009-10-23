@@ -28,7 +28,7 @@ $copy_mother->add_daughter( $daughter_copy );
 # Verify that the first daughter node is Added
 my @mothers_daughters = $mother->daughters;
 is(@mothers_daughters, 1, 'Single child added');
-is(scalar $mother->daughters, 1, 'Single child loaded');
+is( scalar($mother->daughters), 1, 'Single child loaded');
 
 # Verify the name of the first daughter node
 is($mothers_daughters[0]->name, $daughter_one->name, 'First daughters name is Sally');
