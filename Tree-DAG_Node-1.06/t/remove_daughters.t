@@ -22,13 +22,13 @@ my $daughter_one = Tree::DAG_Node->new({name => 'Sally'});
 $mother->add_daughter( $daughter_one );
 
 # Verify that the first daughter node is Added
-is(scalar $mother->daughters, 1, 'Single child loaded');
+is( scalar($mother->daughters), 1, 'Single child loaded');
 
 # Now remove the single child from the root node
 #    |    
 # <Mother>
 $mother->remove_daughter( $daughter_one );
-is(scalar $mother->daughters, 0, 'Root nodes child removed');
+is( scalar($mother->daughters), 0, 'Root nodes child removed');
 
 # Create 3 more daughter nodes
 my $daughter_two = Tree::DAG_Node->new({name => 'Luci'});
@@ -47,10 +47,10 @@ my @daughters = ( $daughter_two, $daughter_three, $daughter_four );
 $mother->add_daughters( @daughters );
 
 # Verify that daughters two and three were added and that daughter one still exists
-is(scalar $mother->daughters, 3, 'Three children loaded');
+is( scalar($mother->daughters), 3, 'Three children loaded');
 
 # Now remove the children from the root node
 #    |    
 # <Mother>
 $mother->remove_daughters( @daughters );
-is(scalar $mother->daughters, 0, 'Root nodes children removed');
+is( scalar($mother->daughters), 0, 'Root nodes children removed');

@@ -23,7 +23,7 @@ is( scalar(@rc), 0, 'Adding a child should return nothing');
 my @daughters = $root->daughters;
 is(@daughters, 1, 'Single child added');
 
-is(scalar $root->daughters, 1, 'Single child loaded');
+is( scalar($root->daughters), 1, 'Single child loaded');
 
 is($daughters[0]->name, $child->name, 'Daughters names are correct');
 
