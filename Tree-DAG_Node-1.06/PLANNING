@@ -1,0 +1,42 @@
+Two tests - using 1 child, using 2
+also, passing nothing causes no change, returns empty string, and kills no babies.
+
+
+$node->add_left_sisters( LIST )
+
+This adds the elements in LIST (in that order) as immediate left sisters of $node. In other words, given that B's mother's daughter-list is (A,B,C,D), calling B->add_left_sisters(X,Y) makes B's mother's daughter-list (A,X,Y,B,C,D).
+
+If LIST is empty, this is a no-op, and returns empty-list.
+
+This is basically implemented as a call to $node->replace_with(LIST, $node), and so all replace_with's limitations and caveats apply.
+
+The return value of $node->add_left_sisters( LIST ) is the elements of LIST that got added, as returned by replace_with -- minus the copies of $node you'd get from a straight call to $node->replace_with(LIST, $node).
+
+2:
+initial setup
+create mother <M>
+create 2 daughters of mother <A> <B>
+create 2 unlinked nodes, that will be added later <X> <Y>
+
+Do the test as documented
+  add to the left of first or second?
+    Try both!
+
+# Get the updated mother's daughters list
+@mothers_daughters = $mother->daughters;
+
+# Get the updated mother's daughters list
+@mothers_daughters_names = map { $_->name() } $mother->daughters;
+$mothers_daughters_names = join ' ', map { $_->name() } $mother->daughters;
+
+is( $mothers_daughters_names, 'A X Y B', 'add_left_sisters, inserted mid-list');
+...
+is( $mothers_daughters_names, 'X Y A B', 'add_left_sisters, inserted front-of-list');
+
+is( $mothers_daughters_names, 'A B', 'add_left_sisters, null list');
+
+Null insertion
+
+Test for ordering
+
+Add this document as a "planning" doc to the repo!
