@@ -33,10 +33,17 @@ is( $mothers_daughters_names, 'A X Y B', 'add_left_sisters, inserted mid-list');
 ...
 is( $mothers_daughters_names, 'X Y A B', 'add_left_sisters, inserted front-of-list');
 
-is( $mothers_daughters_names, 'A B', 'add_left_sisters, null list');
-
-Null insertion
-
 Test for ordering
 
 Add this document as a "planning" doc to the repo!
+
+
+---
+2010-02-25
+New issue: $mother->add_daughters( LIST ) docs does not specify that the order of the elements in LIST is preserved, only that successive calls will append to the right.
+
+add_left_sisters - need to address last example of return value after further study.
+Change *2 to refer to method name array.
+
+add_right_sisters - port new code in add_left_sisters, and vice versa.
+
