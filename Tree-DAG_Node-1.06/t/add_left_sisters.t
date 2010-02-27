@@ -1,15 +1,23 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use Test::More tests => 3 * 2;
+use Test::More tests => 5 * 2;
 use Tree::DAG_Node;
 
-sub daughter_list {
+my @synonymous_methods = qw( add_left_sister add_left_sisters );
+
+sub daughter_names {
     my ($node) = @_;
-    return join ' ', map { $_->name } $node->daughters;
+#     return join ' ', map { $_->name } $node->daughters;
+    return node_names($node->daughters);
 }
 
-for my $sister_method_name ( qw( add_left_sister add_left_sisters ) ) {
+sub node_names {
+    my (@nodes) = @_;
+    return join ' ', map { $_->name } @nodes;
+}
+
+for my $method_name ( @synonymous_methods ) {
     # Create a new root node, and its children.
     my $mother = Tree::DAG_Node->new( { name => 'mother' } );
     my $node_A = Tree::DAG_Node->new( { name => 'A' } );
@@ -21,6 +29,8 @@ for my $sister_method_name ( qw( add_left_sister add_left_sisters ) ) {
     my $node_X = Tree::DAG_Node->new( { name => 'X' } );
     my $node_Y = Tree::DAG_Node->new( { name => 'Y' } );
 
+    # Create list for return value of tested methods
+    my @returned_nodes;
 
     # Verifying examples in method doc.
     # XXX 4 calls instead of one, due to docs underspecifying add_daughters().
@@ -28,15 +38,13 @@ for my $sister_method_name ( qw( add_left_sister add_left_sisters ) ) {
     $mother->add_daughters( $node_B );
     $mother->add_daughters( $node_C );
     $mother->add_daughters( $node_D );
-    is( daughter_list($mother), 'A B C D', "$sister_method_name - Initial order is correct");
+    is( daughter_names($mother), 'A B C D', "$method_name - Initial order is correct");
 
+    @returned_nodes = $node_B->$method_name( );
+    is( daughter_names($mother), 'A B C D', "$method_name - Empty LIST causes no change");
+    is( node_names(@returned_nodes), '', "$method_name - Addition of empty list returns empty list" );
 
-    $node_B->$sister_method_name( );
-    is( daughter_list($mother), 'A B C D', "$sister_method_name - Empty LIST causes no change");
-
-
-    $node_B->$sister_method_name( $node_X, $node_Y );
-
-    is( daughter_list($mother), 'A X Y B C D', "$sister_method_name - Result is as documented" );
-    
+    @returned_nodes = $node_B->$method_name( $node_X, $node_Y );
+    is( daughter_names($mother), 'A X Y B C D', "$method_name - Result is as documented" );
+    is( node_names(@returned_nodes), 'X Y', "$method_name - Returned result is as documented" );
 }
