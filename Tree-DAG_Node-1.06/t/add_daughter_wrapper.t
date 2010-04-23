@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use strict;
+use warnings;
 use Test::More tests => 6;
 use Tree::DAG_Node;
 
