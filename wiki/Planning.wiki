@@ -1,0 +1,110 @@
+#summary The Planning document for this project.
+#labels Phase-Implementation
+
+= PLANNING =
+
+Two tests - using 1 child, using 2
+also, passing nothing causes no change, returns empty string, and kills no babies.
+
+
+$node->add_left_sisters( LIST )
+
+This adds the elements in LIST (in that order) as immediate left sisters of $node. In other words, given that B's mother's daughter-list is (A,B,C,D), calling B->add_left_sisters(X,Y) makes B's mother's daughter-list (A,X,Y,B,C,D).
+
+If LIST is empty, this is a no-op, and returns empty-list.
+
+This is basically implemented as a call to $node->replace_with(LIST, $node), and so all replace_with's limitations and caveats apply.
+
+The return value of $node->add_left_sisters( LIST ) is the elements of LIST that got added, as returned by replace_with -- minus the copies of $node you'd get from a straight call to $node->replace_with(LIST, $node).
+
+2:
+initial setup
+create mother <M>
+create 2 daughters of mother <A> <B>
+create 2 unlinked nodes, that will be added later <X> <Y>
+
+Do the test as documented
+  add to the left of first or second?
+    Try both!
+
+{{{
+# Get the updated mother's daughters list
+@mothers_daughters = $mother->daughters;
+
+# Get the updated mother's daughters list
+@mothers_daughters_names = map { $_->name() } $mother->daughters;
+$mothers_daughters_names = join ' ', map { $_->name() } $mother->daughters;
+
+is( $mothers_daughters_names, 'A X Y B', 'add_left_sisters, inserted mid-list');
+...
+is( $mothers_daughters_names, 'X Y A B', 'add_left_sisters, inserted front-of-list');
+}}}
+
+Test for ordering
+
+Add this document as a "planning" doc to the repo!
+
+
+---
+* 2010-02-25 *
+New issue: $mother->add_daughters( LIST ) docs does not specify that the order of the elements in LIST is preserved, only that successive calls will append to the right.
+
+add_left_sisters - need to address last example of return value after further study.
+Change *2 to refer to method name array.
+
+add_right_sisters - port new code in add_left_sisters, and vice versa.
+
+---
+
+* Tests *
+
+List of methods in Tree::DAG_Node
+(+ means a test file has been created; - means the method is entirely untested)
+
+|| - || $node->new ||
+|| + || $node->daughters ||
+|| + || $node->mother ||
+|| + || $node->new_daughter( LIST ) ||
+|| + || $node->new_daughter_left( LIST ) ||
+|| ? || $node->add_daughter( LIST ) ||
+|| + || $node->add_daughter_left( LIST ) ||
+|| + || $node->remove_daughter( LIST ) ||
+|| + || $node->unlink_from_mother ||
+|| - || $node->replace_with( LIST ) ||
+|| - || $node->replace_with_daughters ||
+|| + || $node->add_left_sisters( LIST ) ||
+|| + || $node->add_left_sister( LIST ) ||
+|| + || $node->add_right_sisters( LIST ) ||
+|| + || $node->add_right_sister( LIST ) ||
+|| - || $node->name or $node->name(SCALAR) ||
+|| - || $node->attributes or $node->attributes(SCALAR) ||
+|| - || $node->attribute or $node->attribute(SCALAR) ||
+|| - || $node->is_node ||
+|| - || $node->ancestors ||
+|| - || $node->root ||
+|| - || $node->is_daughter_of($node2) ||
+|| - || $node->self_and_descendants ||
+|| - || $node->descendants ||
+|| - || $node->leaves_under ||
+|| - || $node->depth_under ||
+|| - || $node->generation ||
+|| - || $node->generation_under(NODE2) ||
+|| - || $node->self_and_sisters ||
+|| - || $node->sisters ||
+|| - || $node->left_sister ||
+|| - || $node->left_sisters ||
+|| - || $node->right_sister ||
+|| - || $node->right_sisters ||
+|| - || $node->my_daughter_index ||
+|| - || $node->address or $anynode->address(ADDRESS) ||
+|| - || $node->common(LIST) ||
+|| - || $node->common_ancestor(LIST) ||
+|| - || $node->walk_down({ callback => \&foo, callbackback => \&foo, ... }) ||
+|| - || $node->tree_to_lol_notation({...options...}) ||
+|| - || $node->tree_to_lol ||
+|| - || $node->tree_to_simple_lol ||
+|| - || $node->tree_to_simple_lol_notation({...options...}) ||
+|| + || $node->copy_tree or $node->copy_tree({...options...}) ||
+|| + || $node->copy_at_and_under or $node->copy_at_and_under({...options...}) ||
+|| - || $node->delete_tree ||
+
