@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 5 * 2;
 use Tree::DAG_Node;
+do 't/utility.pl' or die;
 
 ###
 ###  NOTE: add_right_sisters.t and add_left_sisters.t are
@@ -10,16 +11,6 @@ use Tree::DAG_Node;
 ###
 
 my @synonymous_methods = qw( add_left_sister add_left_sisters );
-
-sub daughter_names {
-    my ($node) = @_;
-    return node_names($node->daughters);
-}
-
-sub node_names {
-    my (@nodes) = @_;
-    return join ' ', map { $_->name } @nodes;
-}
 
 # Tests are based on tree described in add_left_sisters docs:
 #         |
