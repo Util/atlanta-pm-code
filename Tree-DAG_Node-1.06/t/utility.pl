@@ -8,6 +8,12 @@ This file contains utility functions that simplify testing.
 To use, include the file into the .t file with:
     do 't/utility.pl' or die;
 
+These functions depend on the following methods of Tree::DAG_Node:
+  daughters
+  add_daughters
+  name
+  new
+
 =end comments
 
 =cut
@@ -30,7 +36,7 @@ sub build_tree {
     my @daughters = ();
     if ($daughter_count) {
         my $name = 'A';
-        for my $d ( 1..$daughter_count ) {
+        for ( 1..$daughter_count ) {
             my $daughter = Tree::DAG_Node->new( { name => $name++ } );
             $mother->add_daughters( $daughter );
             push( @daughters, $daughter );
