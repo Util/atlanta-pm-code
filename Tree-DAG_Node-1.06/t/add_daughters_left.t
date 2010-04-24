@@ -48,8 +48,8 @@ for my $add_daughter_method ( @synonymous_methods ) {
     #    |       |       |
     # <Kendra> <Luci> <Sally>
 
-    ###  Does the documentation support this test?!?
-    ###    Do the docs require that order be preserved?
+###  Does the documentation support this test?!?
+###    Do the docs require that order be preserved?
 
     $mother->$add_daughter_method( $daughter_two, $daughter_three );
 
