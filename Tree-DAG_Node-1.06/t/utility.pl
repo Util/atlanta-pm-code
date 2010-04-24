@@ -50,13 +50,12 @@ sub display_child_tree {
 
 # function to facilitate creating complex trees
 sub add_children {
-    my ($parent, $child_count, $name) = @_;
+    my ($parent, @names) = @_;
     my @children = ();
-    while ($child_count) {
-        my $daughter = Tree::DAG_Node->new( { name => $name++ } );
-        $parent->add_daughters( $daughter );
-        push( @children, $daughter );
-        $child_count--;
+    for my $name (@names) {
+        my $child = Tree::DAG_Node->new( { name => $name } );
+        $parent->add_daughters( $child );
+        push( @children, $child );
     }
     return ($parent, @children);
 }
