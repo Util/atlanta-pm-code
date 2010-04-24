@@ -13,7 +13,7 @@ do 't/utility.pl' or die;
 my @synonymous_methods = qw( add_right_sister add_right_sisters );
 
 # Tests are based on tree described in add_left_sisters docs:
-#         |
+#
 #     <mother>
 #         |
 #   /---+-+-+---\ 
@@ -28,7 +28,7 @@ my @synonymous_methods = qw( add_right_sister add_right_sisters );
 for my $method_name ( @synonymous_methods ) {
 
     # Create nodes for tests: mother, 4 daughters (A,B,C,D), 2 unrelated nodes (X,Y)
-    my $mother = Tree::DAG_Node->new( { name => 'mother' } );
+    my $mother = Tree::DAG_Node->new( { name => 'mom' } );
     my $node_A = Tree::DAG_Node->new( { name => 'A' } );
     my $node_B = Tree::DAG_Node->new( { name => 'B' } );
     my $node_C = Tree::DAG_Node->new( { name => 'C' } );
@@ -48,14 +48,14 @@ for my $method_name ( @synonymous_methods ) {
     my @returned_nodes;
 
     # Verify initial state of test tree
-    is( daughter_names($mother), 'A B C D', "$method_name - Initial order is correct");
+    is( display_child_tree($mother), 'mom { A B C D }', "$method_name - Initial order is correct");
 
     @returned_nodes = $node_B->$method_name( );
-    is( daughter_names($mother), 'A B C D', "$method_name - empty LIST causes no change");
+    is( display_child_tree($mother), 'mom { A B C D }', "$method_name - empty LIST causes no change");
     is( node_names(@returned_nodes), '', "$method_name - adding empty list returns empty list" );
 
     @returned_nodes = $node_B->$method_name( $node_X, $node_Y );
-    is( daughter_names($mother), 'A B X Y C D', "$method_name - two daughters added in correct order" );
+    is( display_child_tree($mother), 'mom { A B X Y C D }', "$method_name - two daughters added in correct order" );
     is( node_names(@returned_nodes), 'X Y', "$method_name - adding two daughters returns list of new daughters" );
 
 }
