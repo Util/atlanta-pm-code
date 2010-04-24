@@ -14,11 +14,15 @@ These functions depend on the following methods of Tree::DAG_Node:
   name
   new
 
+StephenC is renaming elements of this file with gender neutral names
+(daughter to child, mother to parent, etc.) to distinguish functions
+created to test Tree::DAG_Node from its own methods
+
 =end comments
 
 =cut
 
-
+### SHOULD RENAME daughter_names TO children_names
 sub daughter_names {
     my ($node) = @_;
     return node_names($node->daughters);
@@ -27,6 +31,34 @@ sub daughter_names {
 sub node_names {
     my (@nodes) = @_;
     return join ' ', map { $_->name } @nodes;
+}
+
+# return a cannonical representation of tree branches from passed node
+sub display_child_tree {
+    my ($node) = @_;
+    my @tree;
+    push(@tree, $node->name);
+    if ($node->daughters) {
+        push(@tree, '{');
+        for my $child ($node->daughters) {
+            push(@tree, display_child_tree($child));
+        }
+        push(@tree, '}');
+    }
+    join(' ', @tree);
+}
+
+# function to facilitate creating complex trees
+sub add_children {
+    my ($parent, $child_count, $name) = @_;
+    my @children = ();
+    while ($child_count) {
+        my $daughter = Tree::DAG_Node->new( { name => $name++ } );
+        $parent->add_daughters( $daughter );
+        push( @children, $daughter );
+        $child_count--;
+    }
+    return ($parent, @children);
 }
 
 sub build_tree {
