@@ -12,13 +12,13 @@ do 't/utility.pl' or die;
 
 my @synonymous_methods = qw( add_daughters_left add_daughter_left );
 
-for my $method_name ( @synonymous_methods ) {
+for my $add_daughter_method ( @synonymous_methods ) {
 
     # Create mother node
     my $mother = Tree::DAG_Node->new({name => 'mother'});
 
-    $mother->$method_name( );
-    is( display_child_tree($mother), 'mother', "$method_name: adding null list is a no-op (no initial daughters)");
+    $mother->$add_daughter_method( );
+    is( display_child_tree($mother), 'mother', "$add_daughter_method: adding null list is a no-op (no initial daughters)");
 
     # Create second node; add as daughter to the root node
     #
@@ -30,11 +30,11 @@ for my $method_name ( @synonymous_methods ) {
     $mother->add_daughter( $daughter_one );
 
     # Verify that the daughter node was added
-    is( node_names($mother->daughters), 'Sally', "$method_name: added child to mother");
+    is( node_names($mother->daughters), 'Sally', "$add_daughter_method: added child to mother");
 
     # Call method with no LIST and verify that the object remains unchanged.
-    $mother->$method_name( );
-    is( node_names($mother->daughters), 'Sally', "$method_name: adding null list is a no-op (1 initial daughter)");
+    $mother->$add_daughter_method( );
+    is( node_names($mother->daughters), 'Sally', "$add_daughter_method: adding null list is a no-op (1 initial daughter)");
 
     # Create 3 more daughter nodes
     my $daughter_two = Tree::DAG_Node->new({name => 'Luci'});
@@ -51,14 +51,14 @@ for my $method_name ( @synonymous_methods ) {
     ###  Does the documentation support this test?!?
     ###    Do the docs require that order be preserved?
 
-    $mother->$method_name( $daughter_two, $daughter_three );
+    $mother->$add_daughter_method( $daughter_two, $daughter_three );
 
     # Verify that daughters two and three were added and that daughter one still exists
-    is( node_names($mother->daughters), 'Kendra Luci Sally', "$method_name: two daughters added to left");
+    is( node_names($mother->daughters), 'Kendra Luci Sally', "$add_daughter_method: two daughters added to left");
 
     # Call add_daughter_left with no node and verify that the object remained unchanged.
     $mother->add_daughter_left( );
-    is( display_child_tree($mother), 'mother { Kendra Luci Sally }', "$method_name: adding null list is a no-op (3 initial daughter)");
+    is( display_child_tree($mother), 'mother { Kendra Luci Sally }', "$add_daughter_method: adding null list is a no-op (3 initial daughter)");
 
     # Add the forth daughter by calling add_daughter_left
     #
@@ -70,6 +70,6 @@ for my $method_name ( @synonymous_methods ) {
     $mother->add_daughter_left( $daughter_four );
 
     # Verify that daughter four is now the first daughter
-    is( node_names($mother->daughters), 'Bobby Kendra Luci Sally', "$method_name: two daughters added to left");
+    is( node_names($mother->daughters), 'Bobby Kendra Luci Sally', "$add_daughter_method: two daughters added to left");
 
 }
