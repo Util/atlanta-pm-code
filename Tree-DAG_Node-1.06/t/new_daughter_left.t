@@ -2,41 +2,36 @@
 
 use strict;
 use warnings;
-use Test::More tests => 3;
+use Test::More tests => 2;
 use Tree::DAG_Node;
+do 't/utility.pl' or die;
 
-my $mother = Tree::DAG_Node->new({name => 'mother'});
+###
+###  NOTE: new_daughter.t and new_daughter_left.t are
+###  (and should remain) NEARLY identical
+###
 
 # Create a new root node
-#     |    
-#  <Mother>
+my $mother = Tree::DAG_Node->new({name => 'mother'});
 
-my $daughter_one = $mother->new_daughter({name => 'Sally'});
-
-# Create the daughter node to the root node
-#    |    
+# Create a first child of the root node
+#
 # <Mother>
 #    |    
 # <Sally> 
 
-# Verify that the first daughter node is Added
-my @mothers_daughters = $mother->daughters;
+my $daughter_one = $mother->new_daughter_left({name => 'Sally'});
 
-# Verify the name of the first daughter node
-is($mothers_daughters[0]->name, $daughter_one->name, 'First daughters name is Sally');
+# Verify the resulting tree structure
+is( display_child_tree($mother), 'mother { Sally }', 'Daughter added to existing mother with existing daughter');
 
-# Add a new daughter to be first in the mother's daughters list
+# Add a new first child to the root node
 my $daughter_two = $mother-> new_daughter_left({name=> 'Bobby'});
 
-#        |           
 #     <Mother>        
 #    /-------\   
 #    |       | 
 # <Bobby> <Sally>
 
-# Get the updated mother's daughters list
-@mothers_daughters = $mother->daughters;
-
-# Verify that the first daughter is now Bobby and the second daughter is Sally
-is($mothers_daughters[0]->name, $daughter_two->name, 'First daughters name is now Bobby');
-is($mothers_daughters[1]->name, $daughter_one->name, 'Second daughters name is Sally');
+# Verify the resulting tree structure
+is( display_child_tree($mother), 'mother { Bobby Sally }', 'Daughter added to existing mother with existing daughter');
