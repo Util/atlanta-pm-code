@@ -6,7 +6,7 @@ use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
 ###
-###  NOTE: left_sisters.t and right_sisters.t are
+###  NOTE: left_sisters.t, sisters.t, and right_sisters.t are
 ###  (and should remain) very SIMILAR
 ###
 
