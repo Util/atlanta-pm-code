@@ -40,6 +40,8 @@ With GUI clients, you should be able to checkout the source code by providing th
 
 http://search.cpan.org/~pjcj/Devel-Cover-0.64/lib/Devel/Cover/Tutorial.pod
 
+Nitty gritty: install Devel::Cover via cpan, toggle switches, or other method of your choosing; type "cover -test" in directory with code base (parent of "t"); stand back
+
 = Other resources (by author) =
 
 [http://langworth.com/ Ian Langworth]: [http://langworth.com/pub/notes/perltestref.html Perl testing reference card] (discussed at Sep 2008 meeting), [http://www.amazon.com/exec/obidos/ASIN/0596100922/ Perl Testing: A Developer's Notebook] (book)
