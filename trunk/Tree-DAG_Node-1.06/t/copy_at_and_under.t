@@ -28,5 +28,5 @@ is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } 
 # Make copy of tree using a non-root node 
 $copy = $grandchild->copy_at_and_under();
 
-is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } }', 'Entire 4-generation tree replicated from non-root node');
+is( display_child_tree($copy), 'grandchild { greatgrandchild }', 'Entire 4-generation tree replicated from non-root node');
 

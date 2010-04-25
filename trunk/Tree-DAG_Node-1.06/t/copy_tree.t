@@ -28,5 +28,5 @@ is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } 
 # Make copy of 2-generation sub-tree
 $copy = $grandchild->copy_tree();
 
-is( display_child_tree($copy), 'grandchild { greatgrandchild }', '2-generation sub-tree replicated');
+is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } }', '2-generation sub-tree replicated');
 
