@@ -5,6 +5,11 @@ use Test::More tests => 5;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
+###
+###  NOTE: left_sisters.t and right_sisters.t are
+###  (and should remain) very SIMILAR
+###
+
 # Create a 0 daughter tree
 my($mother, @daughters) = build_tree(0);
 is( node_names($mother->left_sisters( )), '', "root node has no sisters");
