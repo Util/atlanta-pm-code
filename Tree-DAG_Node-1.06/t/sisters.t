@@ -20,6 +20,6 @@ is( node_names($daughters[0]->sisters( )), '', "only child has no sisters");
 
 # Create a 5 daughter tree
 ($mother, @daughters) = build_tree(5);
-is( node_names($daughters[0]->left_sisters( )), 'B C D E', "oldest child has 4 sisters");
-is( node_names($daughters[2]->left_sisters( )), 'A B D E', "3rd child has 2 sisters");
-is( node_names($daughters[4]->left_sisters( )), 'A B C D', "last child has 4 sisters");
+is( node_names($daughters[0]->sisters( )), 'B C D E', "oldest child has 4 sisters");
+is( node_names($daughters[2]->sisters( )), 'A B D E', "3rd child has 2 sisters");
+is( node_names($daughters[4]->sisters( )), 'A B C D', "last child has 4 sisters");
