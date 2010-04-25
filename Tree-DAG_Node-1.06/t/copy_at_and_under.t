@@ -1,29 +1,32 @@
 #!/usr/bin/perl
 
-use Test::More tests => 4;
+use strict;
+use warnings;
+use Test::More tests => 2;
 use Tree::DAG_Node;
+do 't/utility.pl' or die;
 
+# Create a tree
 my $root = Tree::DAG_Node->new();
 my $child = Tree::DAG_Node->new();
 my $grandchild = Tree::DAG_Node->new();
 my $greatgrandchild = Tree::DAG_Node->new();
 
-$root->name('top level');
-$child->name('second level');
-$grandchild->name('third level');
-$greatgrandchild->name('forth level');
+$root->name('root');
+$child->name('child');
+$grandchild->name('grandchild');
+$greatgrandchild->name('greatgrandchild');
 
 $root->add_daughter( $child );
 $child->add_daughter( $grandchild );
 $grandchild->add_daughter( $greatgrandchild );
 
-$copy_of_root = $root->copy_at_and_under();
+# Make copy of tree
+my $copy = $root->copy_at_and_under();
+is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } }', 'Entire 4-generation tree replicated from root node');
 
-is($copy_of_root->name, $root->name, 'Root and Copy of Root names match');
+# Make copy of tree using a non-root node 
+$copy = $grandchild->copy_at_and_under();
 
-@copy_of_root_descendants = $copy_of_root->descendants;
-
-is($copy_of_root_descendants[0]->name, $child->name, 'Child of Root and Child of Copy of Root names match');
-is($copy_of_root_descendants[1]->name, $grandchild->name, 'GrandChild of Root and GrandChild of Copy of Root names match');
-is($copy_of_root_descendants[2]->name, $greatgrandchild->name, 'GreatGrandChild of Root and GreatGrandChild of Copy of Root names match');
+is( display_child_tree($copy), 'root { child { grandchild { greatgrandchild } } }', 'Entire 4-generation tree replicated from non-root node');
 
