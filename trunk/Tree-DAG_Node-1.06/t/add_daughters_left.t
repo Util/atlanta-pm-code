@@ -57,7 +57,7 @@ for my $add_daughter_method ( @synonymous_methods ) {
     is( node_names($mother->daughters), 'Kendra Luci Sally', "$add_daughter_method: two daughters added to left");
 
     # Call add_daughter_left with no node and verify that the object remained unchanged.
-    $mother->add_daughter_method( );
+    $mother->$add_daughter_method( );
     is( display_child_tree($mother), 'mother { Kendra Luci Sally }', "$add_daughter_method: adding null list is a no-op (3 initial daughter)");
 
     # Add the forth daughter by calling add_daughter_left
@@ -67,7 +67,7 @@ for my $add_daughter_method ( @synonymous_methods ) {
     #    |       |       |       |
     # <Bobby> <Kendra> <Luci> <Sally>
 
-    $mother->add_daughter_method( $daughter_four );
+    $mother->$add_daughter_method( $daughter_four );
 
     # Verify that daughter four is now the first daughter
     is( node_names($mother->daughters), 'Bobby Kendra Luci Sally', "$add_daughter_method: two daughters added to left");
