@@ -31,7 +31,7 @@ After you have subversion, you can checkout the source code.
 
 With the `svn` command line client, type the following:
 {{{
-svn checkout https://atlanta-pm-code.googlecode.com/svn/trunk/ atlanta-pm-code --username YourGoogleCodeUsername
+svn checkout https://atlanta-pm-code.googlecode.com/svn/trunk/Tree-DAG_Node-1.06/ atlanta-pm-code --username YourGoogleCodeUsername
 }}}
 
 With GUI clients, you should be able to checkout the source code by providing the subversion URL (https://atlanta-pm-code.googlecode.com/svn/trunk/) and your Google Code credentials (username/[http://code.google.com/hosting/settings password]).
