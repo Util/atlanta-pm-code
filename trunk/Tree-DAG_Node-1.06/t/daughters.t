@@ -6,18 +6,6 @@ use Test::More tests => 4;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
-=for comments
-
-does no D return empty
-Have D, return D
-  is it a list
-  right #
-  
-
-=end comments
-
-=cut
-
 my %nodes;
 
 {

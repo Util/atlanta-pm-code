@@ -67,43 +67,15 @@ sub add_children {
     }
 }
 
-
-# sub build_tree {
-#     # Build tree for testing.
-#     my ($daughter_count) = @_;
-#     my $mother = Tree::DAG_Node->new( { name => 'mother' } );
-#     my @daughters = ();
-#     if ($daughter_count) {
-#         my $name = 'A';
-#         for ( 1..$daughter_count ) {
-#             my $daughter = Tree::DAG_Node->new( { name => $name++ } );
-#             $mother->add_daughters( $daughter );
-#             push( @daughters, $daughter );
-#         }
-#     }
-#     return ($mother, @daughters);
-# }
-
 # Common test trees:
-
-# Create a minimal (root only) tree
-
-#       root
-
-# sub tree_minimal {
-#     my $root = Tree::DAG_Node->new( { name => 'root' } );
-#     my %nodes;
-#     $nodes{root} = $root;
-#     return %nodes;
-# }
 
 # Create a two generation tree with "n" daughters
 
 #           root
 #            |
-#    /---+---+---+---\
-#    |   |   |   |   |
-#    A   B   C [...] Z
+#    /-------+-------\
+#    |       |       |
+#    A     [...]     Z
 
 sub tree_simple {
     # Build tree for testing.
