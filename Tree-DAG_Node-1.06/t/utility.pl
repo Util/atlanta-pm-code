@@ -68,21 +68,21 @@ sub add_children {
 }
 
 
-sub build_tree {
-    # Build tree for testing.
-    my ($daughter_count) = @_;
-    my $mother = Tree::DAG_Node->new( { name => 'mother' } );
-    my @daughters = ();
-    if ($daughter_count) {
-        my $name = 'A';
-        for ( 1..$daughter_count ) {
-            my $daughter = Tree::DAG_Node->new( { name => $name++ } );
-            $mother->add_daughters( $daughter );
-            push( @daughters, $daughter );
-        }
-    }
-    return ($mother, @daughters);
-}
+# sub build_tree {
+#     # Build tree for testing.
+#     my ($daughter_count) = @_;
+#     my $mother = Tree::DAG_Node->new( { name => 'mother' } );
+#     my @daughters = ();
+#     if ($daughter_count) {
+#         my $name = 'A';
+#         for ( 1..$daughter_count ) {
+#             my $daughter = Tree::DAG_Node->new( { name => $name++ } );
+#             $mother->add_daughters( $daughter );
+#             push( @daughters, $daughter );
+#         }
+#     }
+#     return ($mother, @daughters);
+# }
 
 # Common test trees:
 

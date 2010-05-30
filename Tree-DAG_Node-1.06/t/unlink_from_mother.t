@@ -6,14 +6,16 @@ use Test::More tests => 3;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
+my %nodes;
+
 # Create a 1 daughter tree
-my ($mother, @daughters) = build_tree(1);
+%nodes = tree_simple(1);
 
 # Verify that the first daughter node is Added
-is(ref($daughters[0]->mother), ref($mother), 'Child has a mother');
+is(ref($nodes{A}->mother), ref($nodes{root}), 'Child has a mother');
 
-# Now remove the single child from the root node
-my $removed_mother = $daughters[0]->unlink_from_mother( );
-is($daughters[0]->mother, undef, 'Child no longer has a mother');
-is(ref($removed_mother), ref($mother), 'Correct mother reference was returned by subroutine');
+# Test removal of single child from the root node
+my $removed_node = $nodes{A}->unlink_from_mother( );
+is($nodes{A}->mother, undef, 'Child no longer has a mother');
+is(ref($removed_node), ref($nodes{root}), 'Correct mother reference was returned by unlink_from_mother');
 
