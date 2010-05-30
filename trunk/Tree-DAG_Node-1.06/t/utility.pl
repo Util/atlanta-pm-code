@@ -36,9 +36,9 @@ sub node_names {
     return join ' ', map { $_->name } @nodes;
 }
 
-# Returns a cannonical representation of tree branches as a string
-#   from specified node - this is useful in testing whether the state
-#   of a sub-tree matches expectations
+# Returns a cannonical serialized representation of tree branches as
+#   a string from specified node - this is useful in testing whether
+#   the state of a sub-tree matches expectations
 # Usage: display_child_tree(node)
 sub display_child_tree {
     my ($node) = @_;
@@ -68,6 +68,17 @@ sub add_children {
     return ($parent, @children);
 }
 
+sub add_named_children {
+    my ($nodes, $parent, @names) = @_;
+    $parent = $$nodes{$parent};
+    for my $name (@names) {
+        my $child = Tree::DAG_Node->new( { name => $name } );
+        $parent->add_daughters( $child );
+        $$nodes{$name} = $child;
+    }
+}
+
+
 sub build_tree {
     # Build tree for testing.
     my ($daughter_count) = @_;
@@ -82,6 +93,59 @@ sub build_tree {
         }
     }
     return ($mother, @daughters);
+}
+
+# Common test trees:
+
+# Create a minimal tree (root only)
+
+#       root
+
+sub tree_minimal {
+    my $root = Tree::DAG_Node->new( { name => 'root' } );
+    my %nodes;
+    $nodes{root} = $root;
+    return %nodes;
+}
+
+# Create a two generation tree with three daughters (first, middle, last)
+
+#       root
+#        |
+#    /---+---\
+#    |   |   |
+#    A   B   C
+
+sub tree_simple {
+    my %nodes = tree_minimal();
+    add_named_children(\%nodes, 'root', 'A', 'B', 'C');
+    return %nodes;
+}
+
+# Create a complex four generation tree
+
+#               root
+#                |
+#        /-------+-------\
+#        |       |       |
+#        A       B       C
+#        |       |       |
+#    /---+---\   BA  /---+---\
+#    |   |   |       |   |   |
+#    AA  AB  AC      CA  CB  CC
+#        |           |
+#   /----+----\    /---\
+#   |    |    |    |   |
+#  ABA  ABB  ABC  CAA CAB
+
+sub tree_complex {
+    my %nodes = tree_gen2();
+    add_named_children(\%nodes, 'A', 'AA', 'AB', 'AC');
+    add_named_children(\%nodes, 'B', 'BA');
+    add_named_children(\%nodes, 'C', 'CA', 'CB', 'CC');
+    add_named_children(\%nodes, 'AB', 'ABA', 'ABB', 'ABC');
+    add_named_children(\%nodes, 'CA', 'CAA', 'CAB');
+    return %nodes;
 }
 
 1;
