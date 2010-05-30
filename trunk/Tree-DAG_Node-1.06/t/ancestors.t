@@ -8,12 +8,12 @@ do 't/utility.pl' or die;
 my %nodes;
 
 # Test ancestors() with a 0 daughter tree
-%nodes = tree_minimal();
+%nodes = tree_simple(0);
 
 is( node_names($nodes{root}->ancestors( )), '', "root node has no ancestors");
 
 # Test ancestors() with a simple (2 generation) tree
-%nodes = tree_simple();
+%nodes = tree_simple(3);
 
 is( node_names($nodes{root}->ancestors( )), '', "root node has no ancestors");
 is( node_names($nodes{A}->ancestors( )), 'root', "first child (A) has one ancestor");

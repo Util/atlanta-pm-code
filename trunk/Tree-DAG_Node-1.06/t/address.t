@@ -12,12 +12,12 @@ do 't/utility.pl' or die;
 my %nodes;
 
 # Test address() with a 0 daughter tree
-%nodes = tree_minimal();
+%nodes = tree_simple(0);
 
 is( $nodes{root}->address(), '0', "root node has address 0");
 
 # Test address() with a simple (2 generation) tree
-%nodes = tree_simple();
+%nodes = tree_simple(3);
 
 is( $nodes{root}->address(), '0', "root node has address 0");
 is( $nodes{A}->address(), '0:0', "first child (A) has address 0:0");
