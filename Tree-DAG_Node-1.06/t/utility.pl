@@ -86,28 +86,36 @@ sub build_tree {
 
 # Common test trees:
 
-# Create a minimal tree (root only)
+# Create a minimal (root only) tree
 
 #       root
 
-sub tree_minimal {
-    my $root = Tree::DAG_Node->new( { name => 'root' } );
-    my %nodes;
-    $nodes{root} = $root;
-    return %nodes;
-}
+# sub tree_minimal {
+#     my $root = Tree::DAG_Node->new( { name => 'root' } );
+#     my %nodes;
+#     $nodes{root} = $root;
+#     return %nodes;
+# }
 
-# Create a two generation tree with three daughters (first, middle, last)
+# Create a two generation tree with "n" daughters
 
-#       root
-#        |
-#    /---+---\
-#    |   |   |
-#    A   B   C
+#           root
+#            |
+#    /---+---+---+---\
+#    |   |   |   |   |
+#    A   B   C [...] Z
 
 sub tree_simple {
-    my %nodes = tree_minimal();
-    add_children(\%nodes, 'root', 'A', 'B', 'C');
+    # Build tree for testing.
+    my ($daughter_count) = @_;
+    my %nodes;
+    $nodes{root} = Tree::DAG_Node->new( { name => 'root' } );
+    my $name = 'A';
+    my @names = ();
+    if ($daughter_count) {
+        while ($daughter_count--) {push(@names, $name++)}
+        add_children(\%nodes, 'root', @names);
+    }
     return %nodes;
 }
 
@@ -128,7 +136,7 @@ sub tree_simple {
 #  ABA  ABB  ABC  CAA CAB
 
 sub tree_complex {
-    my %nodes = tree_simple();
+    my %nodes = tree_simple(3);
     add_children(\%nodes, 'A', 'AA', 'AB', 'AC');
     add_children(\%nodes, 'B', 'BA');
     add_children(\%nodes, 'C', 'CA', 'CB', 'CC');

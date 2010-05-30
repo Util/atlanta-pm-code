@@ -18,15 +18,17 @@ Have D, return D
 
 =cut
 
+my %nodes;
+
 {
-    my($mother, @daughters) = build_tree(0);
-    my @returned_nodes = $mother->daughters;
+    %nodes = tree_simple(0);
+    my @returned_nodes = $nodes{root}->daughters;
     is( scalar(@returned_nodes), 0, 'Childless node returns empty list' );
 }
 
 {
-    my($mother, @daughters) = build_tree(1);
-    my @returned_nodes = $mother->daughters;
+    %nodes = tree_simple(1);
+    my @returned_nodes = $nodes{root}->daughters;
     is( node_names(@returned_nodes), 'A', 'Node with one child returns one element' );
 }
 
