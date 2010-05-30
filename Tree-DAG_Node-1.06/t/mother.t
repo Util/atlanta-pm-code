@@ -2,14 +2,13 @@
 
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test::More tests => 1;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
-my $root = Tree::DAG_Node->new({name => 'Kate'});
-my $child = Tree::DAG_Node->new({name => 'Betty'});
-$root->add_daughter( $child );
+my %nodes;
 
-is(display_child_tree($root), 'Kate { Betty }', 'Setup test tree');
+# Test mother() with a 1 daughter simple tree
+%nodes = tree_simple(1);
 
-is(ref($child->mother), ref($root), 'Child->mother subroutine returns the correct parent node'); 
+is(ref($nodes{A}->mother), ref($nodes{root}), 'Child->mother() subroutine returns the correct parent node'); 

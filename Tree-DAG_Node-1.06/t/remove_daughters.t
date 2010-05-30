@@ -16,6 +16,7 @@ for my $remove_method ( @synonymous_methods ) {
 
     # Test with root node (no daughter simple tree)
     %nodes = tree_simple(0);
+
     $nodes{root}->$remove_method( );
     is( display_child_tree($nodes{root}), 'root', "$remove_method: remove empty list from no daughters is no-op");
     $nodes{root}->$remove_method( $node_X );
@@ -23,6 +24,7 @@ for my $remove_method ( @synonymous_methods ) {
 
     # Test with a 1 daughter simple tree
     %nodes = tree_simple(1);
+
     $nodes{root}->$remove_method( );
     is( display_child_tree($nodes{root}), 'root { A }', "$remove_method: remove empty list is no-op");
     $nodes{root}->$remove_method( $node_X );
@@ -32,6 +34,7 @@ for my $remove_method ( @synonymous_methods ) {
 
     # Test with an 11 daughter simple tree
     %nodes = tree_simple(11);
+
     $nodes{root}->$remove_method( );
     is( display_child_tree($nodes{root}), 'root { A B C D E F G H I J K }', "$remove_method: remove empty list is no-op");
     $nodes{root}->$remove_method( $nodes{'B'}, $nodes{'D'}, $nodes{'F'} );
@@ -46,6 +49,5 @@ for my $remove_method ( @synonymous_methods ) {
     is( display_child_tree($nodes{root}), 'root { C H I }', "$remove_method: remove sequential interior daughters");
     $nodes{root}->$remove_method( $nodes{'C'}, $nodes{'H'}, $nodes{'I'} );
     is( display_child_tree($nodes{root}), 'root', "$remove_method: remove all daughters");
-
 
 }
