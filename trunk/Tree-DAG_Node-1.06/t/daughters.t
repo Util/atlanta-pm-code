@@ -44,8 +44,8 @@ my %nodes;
 }
 
 {
-    my($mother, @daughters) = build_tree(4);
-    my @returned_nodes = $mother->daughters;
+    %nodes = tree_simple(4);
+    my @returned_nodes = $nodes{root}->daughters;
     is( node_names(@returned_nodes), 'A B C D', 'Node with four children returns four elements' );
 }
 
