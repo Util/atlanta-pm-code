@@ -56,19 +56,8 @@ sub display_child_tree {
 
 # Add nodes to a specified parent node from a list of names (0 or
 #   more names) - useful in creating complex trees
-# Usage: add_children(node, name1, name2,...)
+# Usage: add_children(nodes, parent-name, name1, name2,...)
 sub add_children {
-    my ($parent, @names) = @_;
-    my @children = ();
-    for my $name (@names) {
-        my $child = Tree::DAG_Node->new( { name => $name } );
-        $parent->add_daughters( $child );
-        push( @children, $child );
-    }
-    return ($parent, @children);
-}
-
-sub add_named_children {
     my ($nodes, $parent, @names) = @_;
     $parent = $$nodes{$parent};
     for my $name (@names) {
@@ -118,7 +107,7 @@ sub tree_minimal {
 
 sub tree_simple {
     my %nodes = tree_minimal();
-    add_named_children(\%nodes, 'root', 'A', 'B', 'C');
+    add_children(\%nodes, 'root', 'A', 'B', 'C');
     return %nodes;
 }
 
@@ -139,12 +128,12 @@ sub tree_simple {
 #  ABA  ABB  ABC  CAA CAB
 
 sub tree_complex {
-    my %nodes = tree_gen2();
-    add_named_children(\%nodes, 'A', 'AA', 'AB', 'AC');
-    add_named_children(\%nodes, 'B', 'BA');
-    add_named_children(\%nodes, 'C', 'CA', 'CB', 'CC');
-    add_named_children(\%nodes, 'AB', 'ABA', 'ABB', 'ABC');
-    add_named_children(\%nodes, 'CA', 'CAA', 'CAB');
+    my %nodes = tree_simple();
+    add_children(\%nodes, 'A', 'AA', 'AB', 'AC');
+    add_children(\%nodes, 'B', 'BA');
+    add_children(\%nodes, 'C', 'CA', 'CB', 'CC');
+    add_children(\%nodes, 'AB', 'ABA', 'ABB', 'ABC');
+    add_children(\%nodes, 'CA', 'CAA', 'CAB');
     return %nodes;
 }
 
