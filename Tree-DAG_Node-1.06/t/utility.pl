@@ -23,10 +23,10 @@ created to test Tree::DAG_Node from its own methods
 =cut
 
 ### SHOULD RENAME daughter_names TO children_names
-sub daughter_names {
-    my ($node) = @_;
-    return node_names($node->daughters);
-}
+# sub daughter_names {
+#     my ($node) = @_;
+#     return node_names($node->daughters);
+# }
 
 # Returns space delimited list of the names of specified nodes (0 or
 #   more nodes allowed)
@@ -70,6 +70,7 @@ sub add_children {
 # Common test trees:
 
 # Create a two generation tree with "n" daughters
+# Usage: tree_simple(n)
 
 #           root
 #            |
