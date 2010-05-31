@@ -14,19 +14,9 @@ These functions depend on the following methods of Tree::DAG_Node:
   name
   new
 
-StephenC is renaming elements of this file with gender neutral names
-(daughter to child, mother to parent, etc.) to distinguish functions
-created to test Tree::DAG_Node from its own methods
-
 =end comments
 
 =cut
-
-### SHOULD RENAME daughter_names TO children_names
-# sub daughter_names {
-#     my ($node) = @_;
-#     return node_names($node->daughters);
-# }
 
 # Returns space delimited list of the names of specified nodes (0 or
 #   more nodes allowed)
