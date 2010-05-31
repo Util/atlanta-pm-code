@@ -71,24 +71,24 @@ List of methods in Tree::DAG_Node
 - $node->attributes or $node->attributes(SCALAR)
 - $node->attribute or $node->attribute(SCALAR)
 - $node->is_node
-- $node->ancestors
++ $node->ancestors
 - $node->root
 - $node->is_daughter_of($node2)
 - $node->self_and_descendants
 - $node->descendants
 - $node->leaves_under
 - $node->depth_under
-- $node->generation
++ $node->generation
 - $node->generation_under(NODE2)
-- $node->self_and_sisters
-- $node->sisters
-- $node->left_sister
-- $node->left_sisters
-- $node->right_sister
-- $node->right_sisters
++ $node->self_and_sisters
++ $node->sisters
++ $node->left_sister
++ $node->left_sisters
++ $node->right_sister
++ $node->right_sisters
 - $node->my_daughter_index
 - $node->address or $anynode->address(ADDRESS)
-- $node->common(LIST)
++ $node->common(LIST)
 - $node->common_ancestor(LIST)
 - $node->walk_down({ callback => \&foo, callbackback => \&foo, ... })
 - $node->tree_to_lol_notation({...options...})
