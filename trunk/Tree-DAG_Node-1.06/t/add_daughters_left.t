@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use Test::More tests => 5 * 2;
+use Test::More tests => 7 * 2;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
@@ -11,7 +11,7 @@ do 't/utility.pl' or die;
 ###
 
 my @synonymous_methods = qw( add_daughters_left add_daughter_left );
-my %nodes;
+my(%nodes, %knodes);
 
 for my $add_daughter_method ( @synonymous_methods ) {
 
@@ -19,7 +19,7 @@ for my $add_daughter_method ( @synonymous_methods ) {
     my $nodeA = Tree::DAG_Node->new({name => 'A'});
     my $nodeB = Tree::DAG_Node->new({name => 'B'});
     my $nodeC = Tree::DAG_Node->new({name => 'C'});
-    my $nodeD = Tree::DAG_Node->new({name => 'D'});
+#    my $nodeD = Tree::DAG_Node->new({name => 'D'});
 
     # Start test with a 0 daughter simple tree
     %nodes = tree_simple(0);
@@ -42,8 +42,13 @@ for my $add_daughter_method ( @synonymous_methods ) {
     $nodes{root}->$add_daughter_method( $nodeB, $nodeC );
     is( display_child_tree($nodes{root}), 'root { C B A }', "$add_daughter_method: two daughters added to left");
 
-#   What is the purpose of this test?
+### What is the purpose of this test?
 #     $nodes{root}->$add_daughter_method( $nodeD );
 #     is( display_child_tree($nodes{root}), 'root { D C B A }', "$add_daughter_method: daughter added to left");
+
+    %knodes = tree_simple(0);
+    $knodes{root}->$add_daughter_method( $nodeB );
+    is( display_child_tree($nodes{root}), 'root { C A }', "$add_daughter_method: re-parented daughter removed from old tree");
+    is( display_child_tree($knodes{root}), 'root { B }', "$add_daughter_method: re-parented daughter added to new tree");
 
 }
