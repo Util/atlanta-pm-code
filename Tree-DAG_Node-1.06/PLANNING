@@ -57,7 +57,7 @@ List of methods in Tree::DAG_Node
 + $node->mother
 + $node->new_daughter( LIST )
 + $node->new_daughter_left( LIST )
-? $node->add_daughter( LIST )
++ $node->add_daughter( LIST )
 + $node->add_daughter_left( LIST )
 + $node->remove_daughter( LIST )
 + $node->unlink_from_mother
@@ -86,7 +86,7 @@ List of methods in Tree::DAG_Node
 + $node->left_sisters
 + $node->right_sister
 + $node->right_sisters
-- $node->my_daughter_index
++ $node->my_daughter_index
 - $node->address or $anynode->address(ADDRESS)
 + $node->common(LIST)
 - $node->common_ancestor(LIST)
@@ -97,5 +97,5 @@ List of methods in Tree::DAG_Node
 - $node->tree_to_simple_lol_notation({...options...})
 + $node->copy_tree or $node->copy_tree({...options...})
 + $node->copy_at_and_under or $node->copy_at_and_under({...options...})
-- $node->delete_tree
++ $node->delete_tree
 
