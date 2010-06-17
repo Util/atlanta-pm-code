@@ -27,7 +27,7 @@ for my $add_daughter_method ( @synonymous_methods ) {
     $nodes{root}->$add_daughter_method( );
     is( display_child_tree($nodes{root}), 'root', "$add_daughter_method: adding null list is a no-op (no initial daughters)");
 
-    $nodes{root}->add_daughter( $nodeA );
+    $nodes{root}->$add_daughter_method( $nodeA );
     is( display_child_tree($nodes{root}), 'root { A }', "$add_daughter_method: added child to mother");
 
     $nodes{root}->$add_daughter_method( );
