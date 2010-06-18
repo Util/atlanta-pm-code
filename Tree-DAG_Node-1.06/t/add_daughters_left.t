@@ -16,10 +16,7 @@ my(%nodes, %knodes);
 for my $add_daughter_method ( @synonymous_methods ) {
 
     # Create nodes to add as daughters
-    my $nodeA = Tree::DAG_Node->new({name => 'A'});
-    my $nodeB = Tree::DAG_Node->new({name => 'B'});
-    my $nodeC = Tree::DAG_Node->new({name => 'C'});
-#    my $nodeD = Tree::DAG_Node->new({name => 'D'});
+    my($nodeA, $nodeB, $nodeC) = node_pool('A', 'B', 'C');
 
     # Start test with a 0 daughter simple tree
     %nodes = tree_simple(0);

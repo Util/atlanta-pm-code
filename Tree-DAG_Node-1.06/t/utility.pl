@@ -57,6 +57,15 @@ sub add_children {
     }
 }
 
+sub node_pool {
+    my (@names) = @_;
+    my @nodes = ();
+    for my $name (@names) {
+        push(@nodes, Tree::DAG_Node->new( { name => $name } ));
+    }
+    return @nodes;
+}
+
 # Common test trees:
 
 # Create a two generation tree with "n" daughters

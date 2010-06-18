@@ -23,8 +23,7 @@ for my $add_sister_method ( @synonymous_methods ) {
     %nodes = tree_simple(4);
 
     # Create unrelated nodes to add as sisters
-    my $node_X = Tree::DAG_Node->new( { name => 'X' } );
-    my $node_Y = Tree::DAG_Node->new( { name => 'Y' } );
+    my($node_X, $node_Y) = node_pool('X', 'Y');
 
     # Verify initial state of test tree
     is( display_child_tree($nodes{root}), 'root { A B C D }', "$add_sister_method - Initial order is correct");
