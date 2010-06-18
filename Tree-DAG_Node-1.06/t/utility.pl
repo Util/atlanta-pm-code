@@ -57,6 +57,8 @@ sub add_children {
     }
 }
 
+# Create a list of unrelated named nodes from a list of names
+# Usage: node_pool(name1, name2,...)
 sub node_pool {
     my (@names) = @_;
     my @nodes = ();
