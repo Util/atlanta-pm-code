@@ -11,27 +11,18 @@ do 't/utility.pl' or die;
 ###  (and should remain) NEARLY identical
 ###
 
-# Create a new root node
-my $mother = Tree::DAG_Node->new({name => 'mother'});
+my(%nodes);
 
-# Create a first child of the root node
-#
-# <Mother>
-#    |    
-# <Sally> 
+# Start test with a 0 daughter simple tree
+%nodes = tree_simple(0);
 
-my $daughter_one = $mother->new_daughter_left({name => 'Sally'});
+my $node_A = $nodes{root}->new_daughter_left({name => 'A'});
 
 # Verify the resulting tree structure
-is( display_child_tree($mother), 'mother { Sally }', 'Daughter added to existing mother with existing daughter');
+is( display_child_tree($nodes{root}), 'root { A }', 'Daughter added to existing mother with existing daughter');
 
 # Add a new first child to the root node
-my $daughter_two = $mother-> new_daughter_left({name=> 'Bobby'});
-
-#     <Mother>        
-#    /-------\   
-#    |       | 
-# <Bobby> <Sally>
+my $node_B = $nodes{root}-> new_daughter_left({name=> 'B'});
 
 # Verify the resulting tree structure
-is( display_child_tree($mother), 'mother { Bobby Sally }', 'Daughter added to existing mother with existing daughter');
+is( display_child_tree($nodes{root}), 'root { B A }', 'Daughter added to existing mother with existing daughter');
