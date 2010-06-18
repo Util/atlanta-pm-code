@@ -98,6 +98,8 @@ sub tree_simple {
 #   |    |    |    |   |
 #  ABA  ABB  ABC  CAA CAB
 
+# = root { A { AA AB { ABA ABB ABC } AC } B { BA } C { CA { CAA CAB } CB CC } }
+
 sub tree_complex {
     my %nodes = tree_simple(3);
     add_children(\%nodes, 'A', 'AA', 'AB', 'AC');
