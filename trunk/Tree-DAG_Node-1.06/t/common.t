@@ -10,7 +10,7 @@ my %nodes;
 # Test common() with a complex tree
 %nodes = tree_complex();
 # Create unrelated node (xenos is Greek for foreigner)
-my $xenos = Tree::DAG_Node->new( );
+my($xenos) = node_pool('X');
 
 # test commonality of various "related" nodes
 is( ($nodes{B}->common($nodes{A}))->address(), '0', "commonality of siblings is mother");
