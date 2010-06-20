@@ -26,11 +26,15 @@ for my $add_daughter_method ( @synonymous_methods ) {
 
 # add mother as its own daughter should die via Carp::croak (line 528)
 # XXX    $nodes{root}->$add_daughter_method( $nodes{root} );
-# XXX    is( display_child_tree($nodes{root}), 'root', "$add_daughter_method: add mother as daughter");
+# XXX    TEST?
 
     @returned_nodes = $nodes{root}->$add_daughter_method( $nodeA );
     is( display_child_tree($nodes{root}), 'root { A }', "$add_daughter_method: added child to mother");
     is( scalar(@returned_nodes), 0, "$add_daughter_method: method does not return value when adding");
+
+# add mother as daughter should die via Carp::croak (line 530)
+# XXX    $nodes{A}->$add_daughter_method( $nodes{root} );
+# XXX    TEST?
 
     $nodes{root}->$add_daughter_method( );
     is( display_child_tree($nodes{root}), 'root { A }', "$add_daughter_method: adding null list is a no-op (1 initial daughter)");
