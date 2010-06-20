@@ -14,7 +14,7 @@ my($xenos) = node_pool('X');
 
 # test commonality of various "related" nodes
 is( ($nodes{B}->common($nodes{A}))->address(), '0', "commonality of siblings is mother");
-is( ($nodes{AA}->common($nodes{B}))->address(), '0', "commonality of aunt/neice is aunt's mother");
+is( ($nodes{AA}->common($nodes{B}))->address(), '0', "commonality of aunt/niece is aunt's mother");
 is( ($nodes{root}->common($nodes{AC}))->address(), '0', "commonality of mother/granddaughter is mother");
 is( ($nodes{B}->common($nodes{BA}))->address(), '0:1', "commonality of mother/daughter is mother");
 
