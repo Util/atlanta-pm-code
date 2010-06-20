@@ -23,4 +23,4 @@ is( node_names($nodes{root}->generation()), 'root', "root's generation just root
 is( node_names($nodes{root}->generation()), 'root', "root's generation is root" );
 is( node_names($nodes{B}->generation()), 'A B C', "generation 1 is A, B, C" );
 is( node_names($nodes{CC}->generation()), 'AA AB AC BA CA CB CC', "generation 2 is AA, AB, AC, CA, CB, CC" );
-is( node_names($nodes{ABA}->generation()), 'ABA ABB ABC CAA CAB', "generation 2 is AA, AB, AC, CA, CB, CC" );
+is( node_names($nodes{ABA}->generation()), 'ABA ABB ABC CAA CAB', "generation 3 is ABA ABB ABC CAA CAB" );
