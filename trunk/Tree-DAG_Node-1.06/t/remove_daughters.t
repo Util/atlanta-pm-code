@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use Test::More tests => 12 * 2;
+use Test::More tests => 13 * 2;
 use Tree::DAG_Node;
 do 't/utility.pl' or die;
 
@@ -21,6 +21,8 @@ for my $remove_method ( @synonymous_methods ) {
     is( display_child_tree($nodes{root}), 'root', "$remove_method: remove empty list from no daughters is no-op");
     $nodes{root}->$remove_method( $node_X );
     is( display_child_tree($nodes{root}), 'root', "$remove_method: remove non-daughter from no daughters is no-op");
+    $nodes{root}->$remove_method( 'non-node' );
+    is( display_child_tree($nodes{root}), 'root', "$remove_method: remove non-node from no daughters is ignored");
 
     # Test with a 1 daughter simple tree
     %nodes = tree_simple(1);
