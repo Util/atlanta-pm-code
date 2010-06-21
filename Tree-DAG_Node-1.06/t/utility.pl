@@ -26,6 +26,15 @@ sub node_names {
     return join ' ', map { $_->name } @nodes;
 }
 
+# Returns space delimited, sorted list of the names of specified
+#   nodes (0 or more nodes allowed) - sorting for when order is not
+#   specified
+# Usage: sorted_node_names(node1, node2,...)
+sub sorted_node_names {
+    my (@nodes) = @_;
+    return join ' ', sort( map { $_->name } @nodes);
+}
+
 # Returns a cannonical serialized representation of tree branches as
 #   a string from specified node - this is useful in testing whether
 #   the state of a sub-tree matches expectations
