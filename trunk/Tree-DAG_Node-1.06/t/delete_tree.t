@@ -12,7 +12,8 @@ $nodes{root}->delete_tree();
 is( scalar(grep { ref($_) eq 'DEADNODE' } @node_list), 0, 'All nodes of tree were destroyed by delete_tree');
 
 # Test for destruction of name attribute - all attributes should be destroyed
-is( $$DEADNODE::nodes{ABC}, (), 'Node names were destroyed by delete_tree');
+my $junk_to_silence_warning = $DEADNODE::nodes; # See PLANNING.
+is( $DEADNODE::nodes->{ABC}, (), 'Node names were destroyed by delete_tree');
 
 # Test DEADNODE::delete_tree
 $nodes{ABC}->delete_tree();
