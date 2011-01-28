@@ -99,3 +99,6 @@ List of methods in Tree::DAG_Node
 + $node->copy_at_and_under or $node->copy_at_and_under({...options...})
 + $node->delete_tree
 
+Note from delete_tree.t: Created artificial reference to DEADNODE to silence a warning.
+    Take it out if we use more than once.
+    Ask author to add a way to get DEADNODE's info without direct access.
