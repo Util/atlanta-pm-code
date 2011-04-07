@@ -1140,7 +1140,7 @@ Currently implemented as just a test of ($it->mother eq $node2).
 
 sub is_daughter_of {
   my($it,$mama) = @_[0,1];
-  return $it->{'mother'} eq $mama;
+  return defined $it->{'mother'} ? $it->{'mother'} eq $mama : 0;
 }
 
 ###########################################################################
