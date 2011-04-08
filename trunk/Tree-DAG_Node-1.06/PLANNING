@@ -107,3 +107,6 @@ Latest problem:
 For tests that are emitting warnings with `make test`, running the individual tests with `prove t/foo.t` (even with -v) or `perl -I blib t/foo.t` does not emit the warnings! Maybe we are seeing it from a different .t file?
 
 
+Update SVN ignore file to suppress Makefile.old.
+
+Test is_daughter_of for name collisions
