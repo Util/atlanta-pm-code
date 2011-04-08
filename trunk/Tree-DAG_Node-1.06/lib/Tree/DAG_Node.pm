@@ -1131,16 +1131,35 @@ sub root {
 
 ###########################################################################
 
-=item $node->is_daughter_of($node2)
+=item $node->is_daughter_of($node2_name)
 
-Returns true iff $node is a daughter of $node2.
-Currently implemented as just a test of ($it->mother eq $node2).
+Returns true iff $node is a daughter of the node named $node2_name.
+Currently implemented as just a test of ($it->mother eq $node2_name).
 
 =cut
 
 sub is_daughter_of {
   my($it,$mama) = @_[0,1];
+
   return defined $it->{'mother'} ? $it->{'mother'} eq $mama : 0;
+}
+
+###########################################################################
+
+=item $node->is_child_of($node2)
+
+Returns true iff $node is a child of $node2.
+Currently implemented as just a test of ($it->mother eq $node2).
+
+=cut
+
+sub is_child_of {
+  my ( $self, $parent_node ) = @_;
+  warn "Node2 is not a TREE:DAG_Node (or subclass) object" if ! $parent_node->can('is_child_of');
+  my $mom = $self->{'mother'};
+  
+  return 0 if not defined $mom;
+  return "$mom" eq "$parent_node";
 }
 
 ###########################################################################
